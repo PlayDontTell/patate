@@ -14,7 +14,7 @@ markdown_book/docs_folder="res://docs"
 
 [application]
 
-config/name="Godot Template"
+config/name="Patate"
 config/version="0.0.0"
 run/main_scene="uid://dsj2w2xqig3yb"
 config/features=PackedStringArray("4.6", "Forward Plus")
