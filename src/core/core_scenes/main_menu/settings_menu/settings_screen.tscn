@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bui28rnd2v567" path="res://src/core/core_scenes/main_menu/settings_menu/setting_option_button.tscn" id="4_nayg6"]
 [ext_resource type="PackedScene" uid="uid://budao5y6u8bsd" path="res://src/core/core_scenes/main_menu/settings_menu/setting_toggle.tscn" id="4_u4k1i"]
 [ext_resource type="Script" uid="uid://dvjgopdw7ubc1" path="res://addons/patate/classes/animated_button.gd" id="6_5g82o"]
+[ext_resource type="Script" uid="uid://byxo4p3pf4tho" path="res://src/core/core_scenes/main_menu/settings_menu/gameplay_panel.gd" id="6_qke3a"]
 
 [node name="SettingsScreen" type="Control" unique_id=1239688094 node_paths=PackedStringArray("default_focus")]
 layout_mode = 3
@@ -49,7 +50,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 clip_tabs = false
 tab_0/title = "SETTINGS_VIDEO_TAB"
 tab_1/title = "SETTINGS_AUDIO_TAB"
@@ -58,6 +59,7 @@ tab_3/title = "SETTINGS_KEYBOARD_CONTROLS_TAB"
 tab_4/title = "SETTINGS_GAMEPAD_CONTROLS_TAB"
 
 [node name="VideoPanel" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=1712374163]
+visible = false
 layout_mode = 2
 horizontal_scroll_mode = 0
 metadata/_tab_index = 0
@@ -149,9 +151,9 @@ setting_name = "ambient_volume"
 label_text = "SETTINGS_AMBIENT_VOLUME_LABEL"
 
 [node name="GameplayPanel" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=830660294]
-visible = false
 layout_mode = 2
 horizontal_scroll_mode = 0
+script = ExtResource("6_qke3a")
 metadata/_tab_index = 2
 metadata/_tab_name = "SETTINGS_GAMEPLAY_TAB"
 
@@ -174,6 +176,14 @@ layout_mode = 2
 layout_mode = 2
 setting_name = "ui_scale"
 label_text = "SETTINGS_UI_SCALE_LABEL"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/TabContainer/GameplayPanel/VBoxContainer" unique_id=262806330]
+layout_mode = 2
+
+[node name="LangOptionButton" parent="MarginContainer/VBoxContainer/TabContainer/GameplayPanel/VBoxContainer" unique_id=804332805 instance=ExtResource("4_nayg6")]
+layout_mode = 2
+setting_name = "lang"
+label_text = "SETTINGS_LOCALE_LABEL"
 
 [node name="KeyboardControlsPanel" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=2081868848]
 visible = false

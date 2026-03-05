@@ -8,7 +8,7 @@ extends HBoxContainer
 
 
 func _ready() -> void:
-	label.set_text(tr(label_text))
+	label.set_text(label_text)
 	
 	if setting_name in SettingsManager.default_settings:
 		toggle_btn.set_pressed_no_signal(SettingsManager.settings[setting_name])

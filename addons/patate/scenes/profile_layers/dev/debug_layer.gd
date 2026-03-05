@@ -174,7 +174,7 @@ func set_core_scene_label(core_scene : StringName = G.core_scene) -> void:
 	core_scene_value.set_text(label_text)
 
 
-func set_locale_label(locale : String = LocaleManager.current_locale) -> void:
+func set_locale_label(locale : String = SettingsManager.settings.lang) -> void:
 	var label_text : String = str(locale)
 	locale_value.set_text(label_text)
 

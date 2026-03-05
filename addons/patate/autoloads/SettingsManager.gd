@@ -31,6 +31,15 @@ func apply_settings(settings_to_apply : GameSettings = settings) -> void:
 
 func adjust_setting(setting : String, value : Variant) -> void:
 	match setting:
+		"lang":
+			if value is String:
+				var new_locale: String = value
+				if new_locale in LocaleManager.get_available_locales():
+					
+					LocaleManager.set_locale(new_locale)
+					
+					save_setting_value(setting, new_locale)
+		
 		"music_volume", "sfx_volume", "ui_volume", "ambient_volume":
 			if value is float or value is int:
 				var hint_range: Dictionary = Utils.get_hint_range_info(SettingsManager.settings, setting)

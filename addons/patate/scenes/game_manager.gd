@@ -47,9 +47,6 @@ func _ready() -> void:
 	
 	init_game_manager()
 	
-	# Create save settings file if it does not exists already
-	SettingsManager.save_settings()
-	
 	# Load pre-existing settings file, and apply settings
 	SettingsManager.load_settings()
 	
@@ -58,6 +55,9 @@ func _ready() -> void:
 	
 	# If settings are loaded, apply them
 	SettingsManager.apply_settings()
+	
+	# Create save settings file if it does not exists already
+	SettingsManager.save_settings()
 	
 	restart_game()
 

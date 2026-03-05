@@ -18,7 +18,7 @@ func _ready() -> void:
 	slider.step = slider_properties.step
 	slider.tick_count = slider_properties.tick_count
 	
-	setting_label.set_text(tr(label_text))
+	setting_label.set_text(label_text)
 	
 	if setting_name in SettingsManager.default_settings:
 		set_slider()

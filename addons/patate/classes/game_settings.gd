@@ -7,6 +7,10 @@ class_name GameSettings
 extends Resource
 
 
+@export_group("General Settings", "")
+## The game langage (interface, dialogue, texts, etc.) - everything that is localized
+@export var lang: String = LocaleManager.get_OS_default_locale()
+
 @export_group("Audio Volumes", "")
 ## dB : 0 = full, -80 = muted
 @export_range(-80.0, 8.0, 8.) var music_volume: float = 0.0
@@ -26,15 +30,6 @@ extends Resource
 
 ## Screen Resolutions Options
 const RESOLUTIONS : Dictionary = {
-	# 4:3
-	"640x480 (4:3)"     : Vector2i(640,  480),
-	"800x600 (4:3)"     : Vector2i(800,  600),
-	"1024x768 (4:3)"    : Vector2i(1024, 768),
-	# 16:10
-	"1280x800 (16:10)"  : Vector2i(1280, 800),
-	"1440x900 (16:10)"  : Vector2i(1440, 900),
-	"1920x1200 (16:10)" : Vector2i(1920, 1200),
-	"2560x1600 (16:10)" : Vector2i(2560, 1600),
 	# 16:9
 	"1024x600 (16:9)"   : Vector2i(1024, 600),
 	"1280x720 (16:9)"   : Vector2i(1280, 720),
@@ -46,18 +41,18 @@ const RESOLUTIONS : Dictionary = {
 	"3840x2160 (16:9)"  : Vector2i(3840, 2160),
 	# 21:9
 	"2560x1080 (21:9)"  : Vector2i(2560, 1080),
+	# 16:10
+	"1280x800 (16:10)"  : Vector2i(1280, 800),
+	"1440x900 (16:10)"  : Vector2i(1440, 900),
+	"1920x1200 (16:10)" : Vector2i(1920, 1200),
+	"2560x1600 (16:10)" : Vector2i(2560, 1600),
+	# 4:3
+	"640x480 (4:3)"     : Vector2i(640,  480),
+	"800x600 (4:3)"     : Vector2i(800,  600),
+	"1024x768 (4:3)"    : Vector2i(1024, 768),
 }
 
 @export_enum(
-	"640x480 (4:3)",
-	"800x600 (4:3)",
-	"1024x768 (4:3)",
-	
-	"1280x800 (16:10)",
-	"1440x900 (16:10)",
-	"1920x1200 (16:10)",
-	"2560x1600 (16:10)",
-	
 	"1024x600 (16:9)",
 	"1280x720 (16:9)",
 	"1366x768 (16:9)",
@@ -67,7 +62,16 @@ const RESOLUTIONS : Dictionary = {
 	"2560x1440 (16:9)",
 	"3840x2160 (16:9)",
 	
-	"2560x1080 (21:9)"
+	"2560x1080 (21:9)",
+	
+	"1280x800 (16:10)",
+	"1440x900 (16:10)",
+	"1920x1200 (16:10)",
+	"2560x1600 (16:10)",
+	
+	"640x480 (4:3)",
+	"800x600 (4:3)",
+	"1024x768 (4:3)",
 ) var screen_resolution : String = get_default_resolution()
 
 ## Interface/UI scale : 0.5 - 2.0, default 1.0

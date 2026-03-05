@@ -6,21 +6,18 @@ extends Node
 ## Emited when game locale has been changed
 signal locale_changed
 
-## The game currently used locale
-var current_locale : String = get_OS_default_locale()
-
 ## Sets game locale (langage setting)
 func set_locale(request_locale : String) -> void:
 	if request_locale in get_available_locales():
-		if request_locale == current_locale:
+		if request_locale == TranslationServer.get_locale():
 			print("locale is already " + request_locale)
 		else:
-			current_locale = request_locale
+			SettingsManager.settings.lang = request_locale
 			TranslationServer.set_locale(request_locale)
 			locale_changed.emit()
 			print("locale set to " + request_locale)
 	else:
-		current_locale = TranslationServer.get_locale()
+		SettingsManager.settings.lang = TranslationServer.get_locale()
 		printerr("requested locale named " + request_locale + " not supported. Available locales: " + str(get_available_locales()))
 
 
