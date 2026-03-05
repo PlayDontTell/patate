@@ -23,7 +23,7 @@ Artists, sound designers, and writers can drop files in the right place without 
 The input system tracks the active device and adapts UI focus and cursor visibility automatically. Adding a new gameplay action means registering one intent, not hunting for every `Input.is_action_pressed` call.
 
 #### Localization
-String handling is wired to Godot's `TranslationServer` from the start. Add a CSV file and call `LocaleManager.set_locale("fr")`. See [Godot's localization docs](https://docs.godotengine.org/en/stable/tutorials/i18n/internationalizing_games.html) for the full workflow.
+String handling is wired to Godot's `TranslationServer` from the start. Add a CSV or PO file and call `LocaleManager.set_locale("fr")`. See [Godot's localization docs](https://docs.godotengine.org/en/stable/tutorials/i18n/internationalizing_games.html) for the full workflow.
 
 #### Save system
 Encryption, atomic writes (no corruption on crash), and forward-compatible schema migration out of the box.
@@ -40,14 +40,8 @@ patate/
 │       ├── classes/            # SaveData, GameSettings, ProjectConfig, ExpoEventConfig
 │       ├── resources/          # Shared resource files (.tres)
 │       └── scenes/             # game_manager.tscn and profile layers (dev, expo)
-├── assets/
-│   ├── art/                    # characters, levels, props, tilesets, ui
-│   ├── audio/                  # atmospheres, dialogue, music, sfx, ui_sfx
-│   ├── fonts/
-│   ├── bitfonts/
-│   ├── texts/                  # Localization CSV files
-│   └── themes/                 # Godot UI themes (debug, default)
-├── src/                        # Your game code — customize freely
+├── assets/                     # Art, audio, fonts, text, themes (see assets/README.md)
+├── src/                        # Your game code (see src/README.md)
 │   ├── core/
 │   │   ├── autoloads/          # Game-specific autoloads
 │   │   └── core_scenes/        # Loading screen, main menu, settings, credits
@@ -55,13 +49,16 @@ patate/
 │   ├── scenes/                 # Game scenes (levels, characters, HUD)
 │   ├── scripts/
 │   └── shaders/
-├── docs/
+├── _examples/                  # Example scenes and experiments
+├── docs/                       # Game documentation, guides, notes
 ├── exports/                    # Per-platform export folders
-├── tools/                      # Dev tools (level editors, optimization scripts, etc.)
-└── wip/                        # Gitignored scratch space
+├── tools/                      # Dev tools (see tools/README.md)
+└── _private/                   # Gitignored and Godot-ignored personal space
 ```
 
 `addons/patate/` is template infrastructure — it should be replaceable across projects without touching game code. `src/` is yours. `addons/` uses a gitignore exception so that `addons/patate/` is tracked while third-party plugins are not.
+
+Each folder has its own README with details on what goes where and who it's for.
 
 ---
 
@@ -82,6 +79,8 @@ The root scene. It owns the threaded scene loader and a `persistent_nodes` expor
 | `PauseManager` | Pause request stack: any node can request pause, last one out unpauses |
 | `LocaleManager` | Localization: locale switching via `TranslationServer` |
 | `Utils` | Static helpers: math, string sanitization, geometry |
+
+All autoloads ship enabled. You don't need to remove the ones you're not using — `SaveManager`, `PauseManager`, `LocaleManager`, and `SettingsManager` are inactive until your code calls them. The only systems that run automatically are `G` (play time tracking), `DeviceManager` (input method detection), and `InputManager` (intent routing).
 
 #### Release modes
 
@@ -136,7 +135,7 @@ G.request_core_scene.emit(&"GAME")
 `BaseMenu` and `BaseMenuController` handle panel visibility, focus memory, input context acquisition, and device-aware focus (mouse releases focus; gamepad restores it). Extend them for any screen that needs navigation history.
 
 #### Save system
-Saves are encrypted with a key from `project_config.tres`. Writes go through a temp file first — if the game crashes mid-save, the previous file stays intact. Schema migration runs on load, filling in new properties added to `SaveData` since the save was created.
+Saves are encrypted with a key from `project_config.tres`. Leave the key empty to disable encryption — useful during development. Set a unique key before shipping a RELEASE build. Writes go through a temp file first — if the game crashes mid-save, the previous file stays intact. Schema migration runs on load, filling in new properties added to `SaveData` since the save was created.
 
 ```gdscript
 SaveManager.create_save_file("my_save")

@@ -14,10 +14,20 @@ func _ready() -> void:
 			if p.hint == PROPERTY_HINT_ENUM:
 				options = p.hint_string.split(",")
 	
+	add_options(options)
+	
+	label.set_text(label_text)
+
+
+func add_options(requested_options: Array) -> void:
+	for requested_option in requested_options:
+		if not requested_option in options:
+			options.append(requested_option)
+	
+	option_button.clear()
+	
 	for option in options:
 		option_button.add_item(option)
-	
-	label.set_text(tr(label_text))
 	
 	if setting_name in SettingsManager.default_settings:
 		option_button._select_int(options.find(SettingsManager.settings[setting_name]))

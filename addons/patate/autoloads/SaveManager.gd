@@ -21,6 +21,8 @@ func _process(delta: float) -> void:
 
 
 func get_encrypt_key() -> String:
+	if G.config.SAVE_ENCRYPT_KEY.is_empty():
+		push_warning("No encrypt key defined in project_config.tres, files will not be fully encrypted.")
 	return G.config.SAVE_ENCRYPT_KEY if G.config else ""
 
 func get_save_dir() -> String:
@@ -296,7 +298,7 @@ func _read_file(file_path : String, mode : FileMode = FileMode.ENCRYPTED) -> Arr
 	var file : FileAccess
 	
 	if mode == FileMode.ENCRYPTED:
-		file = FileAccess.open_encrypted_with_pass(file_path, FileAccess.READ, G.config.SAVE_ENCRYPT_KEY)
+		file = FileAccess.open_encrypted_with_pass(file_path, FileAccess.READ, get_encrypt_key())
 	else:
 		file = FileAccess.open(file_path, FileAccess.READ)
 	
@@ -316,7 +318,7 @@ func _write_file(file_path : String, data_array : Array, mode : FileMode = FileM
 	var file : FileAccess
 	
 	if mode == FileMode.ENCRYPTED:
-		file = FileAccess.open_encrypted_with_pass(file_path, FileAccess.WRITE, G.config.SAVE_ENCRYPT_KEY)
+		file = FileAccess.open_encrypted_with_pass(file_path, FileAccess.WRITE, get_encrypt_key())
 	else:
 		file = FileAccess.open(file_path, FileAccess.WRITE)
 	
