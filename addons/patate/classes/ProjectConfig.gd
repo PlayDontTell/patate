@@ -79,3 +79,8 @@ func get_scene(core_scene : StringName) -> PackedScene:
 @export var DEFAULT_SAVE_IMAGE : Texture2D = preload("res://assets/art/ui/temp/cursors/Vector/Basic/line_cross.svg")
 ## The size of save file screenshots by default
 @export var SCREENSHOT_SIZE : Vector2i = Vector2i(80, 40)
+
+
+@export_group("Input Bindings")
+## Are duplicate input bindings blocked or simply warned ?
+@export var block_duplicate_bindings: bool = true
