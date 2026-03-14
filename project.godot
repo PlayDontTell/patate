@@ -16,20 +16,13 @@ markdown_book/docs_folder="res://docs"
 
 config/name="Patate"
 config/version="0.0.0"
-run/main_scene="uid://bq4f6cr6mkgxd"
+run/main_scene="uid://csxfvg40fy08k"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/show_image=false
-config/icon="res://icon.svg"
 
-[autoload]
+[audio]
 
-G="*uid://db11cacuq7ret"
-DeviceManager="*uid://djkk7nb010exe"
-InputManager="*uid://codtkcus5e6wt"
-LocaleManager="*uid://crud335yopsgb"
-PauseManager="*uid://p3lufouwscel"
-SaveManager="*uid://dhtxt8msos8nu"
-SettingsManager="*uid://c4q7kxmeg4ina"
+buses/default_bus_layout=""
 
 [display]
 
@@ -45,14 +38,8 @@ enabled=PackedStringArray("res://addons/patate/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://_docs/": "yellow",
-"res://_examples/": "red",
 "res://_private/": "pink",
-"res://addons/": "gray",
-"res://assets/": "green",
-"res://src/": "orange",
-"res://tests/": "pink",
-"res://tools/": "purple"
+"res://tests/": "pink"
 }
 
 [input]
@@ -79,6 +66,12 @@ toggle_Expo_timer={
 toggle_Dev_layer={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":true,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
+]
+}
+coucou={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":78,"key_label":0,"unicode":98,"location":0,"echo":false,"script":null)
 ]
 }
 
