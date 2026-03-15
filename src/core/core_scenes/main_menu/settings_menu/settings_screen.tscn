@@ -24,6 +24,12 @@ expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oon2e"]
 bg_color = Color(1, 1, 1, 0.03137255)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 0)
+border_blend = true
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -78,7 +84,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 clip_tabs = false
 tab_0/title = "SETTINGS_GAME_TAB"
 tab_1/title = "SETTINGS_VIDEO_TAB"
@@ -87,7 +93,6 @@ tab_3/title = "SETTINGS_KEYBOARD_CONTROLS_TAB"
 tab_4/title = "SETTINGS_GAMEPAD_CONTROLS_TAB"
 
 [node name="GeneralPanel" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=1658745271]
-visible = false
 layout_mode = 2
 script = ExtResource("6_qke3a")
 metadata/_tab_index = 0
@@ -98,7 +103,6 @@ layout_mode = 2
 alignment = 1
 
 [node name="GameTitle" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel/VBoxContainer" unique_id=417192431]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
@@ -166,7 +170,6 @@ layout_mode = 2
 alignment = 1
 
 [node name="VideoTitle" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer" unique_id=1081745378]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
@@ -249,6 +252,7 @@ setting_name = "saturation"
 label_text = "SETTINGS_SATURATION_LABEL"
 
 [node name="AudioPanel" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=1531928579]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 metadata/_tab_name = "SETTINGS_AUDIO_TAB"
@@ -258,7 +262,6 @@ layout_mode = 2
 alignment = 1
 
 [node name="AudioTitle" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer" unique_id=456325643]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
@@ -335,7 +338,6 @@ layout_mode = 2
 alignment = 1
 
 [node name="ControlsTitle" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/KeyboardControlsPanel/VBoxContainer" unique_id=74294722]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
@@ -386,7 +388,6 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="ControlsTitle" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/GamepadControlsPanel/VBoxContainer2" unique_id=1404003087]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"

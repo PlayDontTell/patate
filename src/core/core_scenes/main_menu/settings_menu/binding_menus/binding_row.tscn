@@ -68,10 +68,13 @@ text = "..."
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="BindingBtn" type="Button" parent="." unique_id=932717082]
+[node name="BindingBtn" type="Button" parent="." unique_id=801383951]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+script = ExtResource("3_x8f2b")
+config = ExtResource("4_etv5d")
+metadata/_custom_type_script = "uid://dvjgopdw7ubc1"
 
 [node name="ResetBtn" type="Button" parent="." unique_id=422815238]
 unique_name_in_owner = true

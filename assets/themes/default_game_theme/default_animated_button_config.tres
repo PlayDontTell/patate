@@ -4,4 +4,9 @@
 
 [resource]
 script = ExtResource("1_m1jcj")
+focus_margins = 4.0
+focus_duration = 0.15
+unfocus_duration = 0.2
+unfocus_ease = 1
+unfocus_trans = 10
 metadata/_custom_type_script = "uid://dch446shvdfoe"
