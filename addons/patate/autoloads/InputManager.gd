@@ -62,7 +62,7 @@ func just_released_event(action: StringName, event: InputEvent, device_id: int =
 func _check_action(action: StringName, event: InputEvent, device_id: int, polling_func: Callable, event_released: bool) -> bool:
 	if not _is_action_allowed(action):
 		return false
-	var translated := translate_action(action, device_id)
+	var translated : StringName = translate_action(action, device_id)
 	if event:
 		if event_released:
 			return event.is_action_released(translated)
@@ -199,6 +199,25 @@ class ContextHandle:
 
 var _context_stack: Array[ContextHandle] = []
 var _active_context: ContextHandle = null  # cached — invalidated on any stack change
+
+
+func get_context_actions(context : Context, rebindable_only : bool = false) -> Array:
+	var actions : Array
+	
+	if CONTEXT_RULES[context].is_empty():
+		for context_actions in CONTEXT_RULES.values():
+			for action in context_actions:
+				if not action in actions:
+					actions.append(action)
+	else:
+		actions = CONTEXT_RULES[context].duplicate()
+	
+	if rebindable_only:
+		for action in actions:
+			if action in _DEV_ACTIONS:
+				actions.erase(action)
+	
+	return actions
 
 
 ## Acquires an input context tied to a node's lifetime.

@@ -249,7 +249,7 @@ shadow_offset = Vector2(1, 2)
 
 [resource]
 default_font = ExtResource("1_laqqx")
-BoxContainer/constants/separation = 10
+BoxContainer/constants/separation = 16
 Button/colors/icon_disabled_color = Color(1, 1, 1, 0.08627451)
 Button/font_sizes/font_size = 18
 Button/styles/disabled = SubResource("StyleBoxFlat_k528p")

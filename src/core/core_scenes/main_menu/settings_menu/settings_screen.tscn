@@ -8,7 +8,34 @@
 [ext_resource type="Script" uid="uid://dvjgopdw7ubc1" path="res://addons/patate/classes/AnimatedButton.gd" id="6_5g82o"]
 [ext_resource type="Script" uid="uid://byxo4p3pf4tho" path="res://src/core/core_scenes/main_menu/settings_menu/gameplay_panel.gd" id="6_qke3a"]
 [ext_resource type="Script" uid="uid://bvd5iaoe5pgld" path="res://src/core/core_scenes/main_menu/settings_menu/video_panel.gd" id="6_t45bb"]
+[ext_resource type="PackedScene" uid="uid://bg1v1sbacbigj" path="res://src/core/core_scenes/main_menu/settings_menu/binding_menus/binding_panel.tscn" id="8_oon2e"]
 [ext_resource type="Resource" uid="uid://bur6phiqbk2j5" path="res://assets/themes/default_game_theme/default_animated_button_config.tres" id="8_x5ns2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1pdr"]
+bg_color = Color(1, 1, 1, 0.03137255)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 24.0
+expand_margin_top = 8.0
+expand_margin_right = 24.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oon2e"]
+bg_color = Color(1, 1, 1, 0.03137255)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oon2e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m1pdr"]
 
 [node name="SettingsScreen" type="Control" unique_id=1239688094]
 layout_mode = 3
@@ -51,7 +78,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_alignment = 1
-current_tab = 3
+current_tab = 2
 clip_tabs = false
 tab_0/title = "SETTINGS_GAME_TAB"
 tab_1/title = "SETTINGS_VIDEO_TAB"
@@ -59,174 +86,343 @@ tab_2/title = "SETTINGS_AUDIO_TAB"
 tab_3/title = "SETTINGS_KEYBOARD_CONTROLS_TAB"
 tab_4/title = "SETTINGS_GAMEPAD_CONTROLS_TAB"
 
-[node name="GeneralPanel" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=830660294]
+[node name="GeneralPanel" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=1658745271]
 visible = false
 layout_mode = 2
-horizontal_scroll_mode = 0
 script = ExtResource("6_qke3a")
 metadata/_tab_index = 0
 metadata/_tab_name = "SETTINGS_GAME_TAB"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel" unique_id=828052426]
 layout_mode = 2
-size_flags_horizontal = 6
 alignment = 1
 
 [node name="GameTitle" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel/VBoxContainer" unique_id=417192431]
+visible = false
 layout_mode = 2
+size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
+theme_override_styles/normal = SubResource("StyleBoxFlat_m1pdr")
 text = "SETTINGS_GAME_TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel/VBoxContainer" unique_id=507150737]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel/VBoxContainer" unique_id=434778201]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="LangOptionButton" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel/VBoxContainer" unique_id=804332805 instance=ExtResource("4_nayg6")]
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel/VBoxContainer/MarginContainer" unique_id=94585004]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oon2e")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel/VBoxContainer/MarginContainer" unique_id=1217431350]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+draw_focus_border = true
+horizontal_scroll_mode = 0
+metadata/_tab_index = 3
+metadata/_tab_name = "SETTINGS_KEYBOARD_CONTROLS_TAB"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel/VBoxContainer/MarginContainer/ScrollContainer" unique_id=564025361]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer" unique_id=1636028104]
+layout_mode = 2
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=808554980]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oon2e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=1799939242]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="LangOptionButton" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=804332805 instance=ExtResource("4_nayg6")]
+unique_name_in_owner = true
 layout_mode = 2
 setting_name = "lang"
 label_text = "SETTINGS_LOCALE_LABEL"
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel/VBoxContainer" unique_id=734183568]
-layout_mode = 2
-
-[node name="UIScaleSlider" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel/VBoxContainer" unique_id=934137071 instance=ExtResource("3_ij1rj")]
+[node name="UIScaleSlider" parent="MarginContainer/VBoxContainer/TabContainer/GeneralPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=934137071 instance=ExtResource("3_ij1rj")]
 layout_mode = 2
 setting_name = "ui_scale"
 label_text = "SETTINGS_UI_SCALE_LABEL"
 
-[node name="VideoPanel" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=1712374163]
+[node name="VideoPanel" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=809510668]
 visible = false
 layout_mode = 2
-horizontal_scroll_mode = 0
 script = ExtResource("6_t45bb")
 metadata/_tab_index = 1
 metadata/_tab_name = "SETTINGS_VIDEO_TAB"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel" unique_id=1732144927]
 layout_mode = 2
-size_flags_horizontal = 6
 alignment = 1
 
 [node name="VideoTitle" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer" unique_id=1081745378]
+visible = false
 layout_mode = 2
+size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
+theme_override_styles/normal = SubResource("StyleBoxFlat_m1pdr")
 text = "SETTINGS_VIDEO_TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer" unique_id=792827963]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer" unique_id=821875614]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="FullscreenToggle" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer" unique_id=1223217776 instance=ExtResource("4_u4k1i")]
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer/MarginContainer" unique_id=1161503711]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oon2e")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer/MarginContainer" unique_id=1676833982]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+draw_focus_border = true
+horizontal_scroll_mode = 0
+metadata/_tab_index = 3
+metadata/_tab_name = "SETTINGS_KEYBOARD_CONTROLS_TAB"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer/MarginContainer/ScrollContainer" unique_id=1493343997]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer" unique_id=992351984]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=878989509]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oon2e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=614158967]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="FullscreenToggle" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1223217776 instance=ExtResource("4_u4k1i")]
 layout_mode = 2
 setting_name = "fullscreen"
 label_text = "SETTINGS_FULLSCREEN_LABEL"
 
-[node name="ScreenResolutionOptionButton" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer" unique_id=1664044786 instance=ExtResource("4_nayg6")]
+[node name="ScreenResolutionOptionButton" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1664044786 instance=ExtResource("4_nayg6")]
+unique_name_in_owner = true
 layout_mode = 2
 setting_name = "screen_resolution"
 label_text = "SETTINGS_SCREEN_RESOLUTION_LABEL"
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer" unique_id=1985525787]
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=779236356]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_m1pdr")
 
-[node name="ContrastSlider" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer" unique_id=1873842072 instance=ExtResource("3_ij1rj")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer2" unique_id=1819216419]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="ContrastSlider" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer" unique_id=1873842072 instance=ExtResource("3_ij1rj")]
 layout_mode = 2
 setting_name = "contrast"
 label_text = "SETTINGS_CONTRAST_LABEL"
 
-[node name="BrightnessSlider" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer" unique_id=1092515923 instance=ExtResource("3_ij1rj")]
+[node name="BrightnessSlider" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer" unique_id=1092515923 instance=ExtResource("3_ij1rj")]
 layout_mode = 2
 setting_name = "brightness"
 label_text = "SETTINGS_BRIGHTNESS_LABEL"
 
-[node name="SaturationSlider" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer" unique_id=1902147723 instance=ExtResource("3_ij1rj")]
+[node name="SaturationSlider" parent="MarginContainer/VBoxContainer/TabContainer/VideoPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer" unique_id=1902147723 instance=ExtResource("3_ij1rj")]
 layout_mode = 2
 setting_name = "saturation"
 label_text = "SETTINGS_SATURATION_LABEL"
 
-[node name="AudioPanel" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=1160286676]
-visible = false
+[node name="AudioPanel" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=1531928579]
 layout_mode = 2
-horizontal_scroll_mode = 0
 metadata/_tab_index = 2
 metadata/_tab_name = "SETTINGS_AUDIO_TAB"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel" unique_id=1660019677]
 layout_mode = 2
-size_flags_horizontal = 6
 alignment = 1
 
 [node name="AudioTitle" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer" unique_id=456325643]
+visible = false
 layout_mode = 2
+size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
+theme_override_styles/normal = SubResource("StyleBoxFlat_m1pdr")
 text = "SETTINGS_AUDIO_TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer" unique_id=1081974650]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer" unique_id=108499568]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="MusicVolumeSlider" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer" unique_id=271336110 instance=ExtResource("3_ij1rj")]
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer/MarginContainer" unique_id=1151649895]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oon2e")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer/MarginContainer" unique_id=1382791188]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+draw_focus_border = true
+horizontal_scroll_mode = 0
+metadata/_tab_index = 3
+metadata/_tab_name = "SETTINGS_KEYBOARD_CONTROLS_TAB"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer/MarginContainer/ScrollContainer" unique_id=1611799566]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer" unique_id=441894295]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1481369949]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oon2e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=1680066716]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="MusicVolumeSlider" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=271336110 instance=ExtResource("3_ij1rj")]
 layout_mode = 2
 setting_name = "music_volume"
 label_text = "SETTINGS_MUSIC_VOLUME_LABEL"
 
-[node name="SFXVolumeSlider2" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer" unique_id=1675937554 instance=ExtResource("3_ij1rj")]
+[node name="SFXVolumeSlider2" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1675937554 instance=ExtResource("3_ij1rj")]
 layout_mode = 2
 setting_name = "sfx_volume"
 label_text = "SETTINGS_SFX_VOLUME_LABEL"
 
-[node name="UIVolumeSlider3" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer" unique_id=951166705 instance=ExtResource("3_ij1rj")]
+[node name="UIVolumeSlider3" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=951166705 instance=ExtResource("3_ij1rj")]
 layout_mode = 2
 setting_name = "ui_volume"
 label_text = "SETTINGS_UI_VOLUME_LABEL"
 
-[node name="AmbientVolumeSlider" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer" unique_id=357306709 instance=ExtResource("3_ij1rj")]
+[node name="AmbientVolumeSlider" parent="MarginContainer/VBoxContainer/TabContainer/AudioPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=357306709 instance=ExtResource("3_ij1rj")]
 layout_mode = 2
 setting_name = "ambient_volume"
 label_text = "SETTINGS_AMBIENT_VOLUME_LABEL"
 
-[node name="KeyboardControlsPanel" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=2081868848]
+[node name="KeyboardControlsPanel" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=1509463863]
+visible = false
 layout_mode = 2
-horizontal_scroll_mode = 0
 metadata/_tab_index = 3
 metadata/_tab_name = "SETTINGS_KEYBOARD_CONTROLS_TAB"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/KeyboardControlsPanel" unique_id=2032776957]
 layout_mode = 2
-size_flags_horizontal = 6
 alignment = 1
 
 [node name="ControlsTitle" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/KeyboardControlsPanel/VBoxContainer" unique_id=74294722]
+visible = false
 layout_mode = 2
+size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
+theme_override_styles/normal = SubResource("StyleBoxFlat_m1pdr")
 text = "SETTINGS_KEYBOARD_CONTROLS_TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/KeyboardControlsPanel/VBoxContainer" unique_id=1718595518]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/KeyboardControlsPanel/VBoxContainer" unique_id=929880146]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="GamepadControlsPanel" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=1749038602]
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/TabContainer/KeyboardControlsPanel/VBoxContainer/MarginContainer" unique_id=1907212150]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oon2e")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer/KeyboardControlsPanel/VBoxContainer/MarginContainer" unique_id=159693541]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+draw_focus_border = true
+horizontal_scroll_mode = 0
+metadata/_tab_index = 3
+metadata/_tab_name = "SETTINGS_KEYBOARD_CONTROLS_TAB"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/KeyboardControlsPanel/VBoxContainer/MarginContainer/ScrollContainer" unique_id=1591409217]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BindingPanel" parent="MarginContainer/VBoxContainer/TabContainer/KeyboardControlsPanel/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer" unique_id=1884498314 instance=ExtResource("8_oon2e")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+alignment = 1
+device_filter = 2
+
+[node name="GamepadControlsPanel" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=1555791834]
 visible = false
 layout_mode = 2
-horizontal_scroll_mode = 0
 metadata/_tab_index = 4
 metadata/_tab_name = "SETTINGS_GAMEPAD_CONTROLS_TAB"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/GamepadControlsPanel" unique_id=150951095]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/GamepadControlsPanel" unique_id=1750574044]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 alignment = 1
 
-[node name="ControlsTitle" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/GamepadControlsPanel/VBoxContainer" unique_id=1994287268]
+[node name="ControlsTitle" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/GamepadControlsPanel/VBoxContainer2" unique_id=1404003087]
+visible = false
 layout_mode = 2
+size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
+theme_override_styles/normal = SubResource("StyleBoxFlat_m1pdr")
 text = "SETTINGS_GAMEPAD_CONTROLS_TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/GamepadControlsPanel/VBoxContainer2" unique_id=1684360106]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/TabContainer/GamepadControlsPanel/VBoxContainer2/MarginContainer" unique_id=147707940]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oon2e")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer/GamepadControlsPanel/VBoxContainer2/MarginContainer" unique_id=49985021]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+draw_focus_border = true
+horizontal_scroll_mode = 0
+metadata/_tab_index = 3
+metadata/_tab_name = "SETTINGS_KEYBOARD_CONTROLS_TAB"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/GamepadControlsPanel/VBoxContainer2/MarginContainer/ScrollContainer" unique_id=1478938]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BindingPanel" parent="MarginContainer/VBoxContainer/TabContainer/GamepadControlsPanel/VBoxContainer2/MarginContainer/ScrollContainer/MarginContainer" unique_id=2082250560 instance=ExtResource("8_oon2e")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+alignment = 1
+device_filter = 3
 
 [node name="BackBtn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1241577681]
 layout_mode = 2

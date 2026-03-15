@@ -56,6 +56,7 @@ offset_right = 106.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 32
 script = ExtResource("1_dsub0")
 
 [node name="ActionLabel" type="Label" parent="." unique_id=1718494305]
@@ -67,8 +68,9 @@ text = "..."
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="RebindBtn" type="Button" parent="." unique_id=932717082]
+[node name="BindingBtn" type="Button" parent="." unique_id=932717082]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="ResetBtn" type="Button" parent="." unique_id=422815238]
@@ -94,5 +96,5 @@ metadata/_custom_type_script = "uid://dvjgopdw7ubc1"
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 
-[connection signal="pressed" from="RebindBtn" to="." method="_on_rebind_btn_pressed"]
+[connection signal="pressed" from="BindingBtn" to="." method="_on_rebind_btn_pressed"]
 [connection signal="pressed" from="ResetBtn" to="." method="_on_reset_btn_pressed"]

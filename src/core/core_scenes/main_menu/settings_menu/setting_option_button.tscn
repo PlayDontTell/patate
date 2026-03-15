@@ -28,6 +28,11 @@ vertical_alignment = 1
 [node name="OptionButton" type="OptionButton" parent="." unique_id=1672496900]
 unique_name_in_owner = true
 texture_filter = 3
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+
+[node name="Container" type="Container" parent="." unique_id=1749613786]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 
 [connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]

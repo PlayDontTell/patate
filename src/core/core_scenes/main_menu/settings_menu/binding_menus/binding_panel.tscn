@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bg1v1sbacbigj"]
+
+[ext_resource type="Script" uid="uid://8nw7kpvhagt7" path="res://src/core/core_scenes/main_menu/settings_menu/binding_menus/binding_panel.gd" id="1_1kumi"]
+
+[node name="BindingPanel" type="VBoxContainer" unique_id=1884498314]
+script = ExtResource("1_1kumi")

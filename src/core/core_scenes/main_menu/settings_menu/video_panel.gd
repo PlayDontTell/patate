@@ -1,6 +1,6 @@
-extends ScrollContainer
+extends MarginContainer
 
-@onready var screen_resolution_option_button: HBoxContainer = $VBoxContainer/ScreenResolutionOptionButton
+@onready var screen_resolution_option_button: HBoxContainer = %ScreenResolutionOptionButton
 
 func _ready() -> void:
 	screen_resolution_option_button.add_options(GameSettings.RESOLUTIONS.keys())

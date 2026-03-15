@@ -1,6 +1,6 @@
-extends ScrollContainer
+extends MarginContainer
 
-@onready var lang_option_button: HBoxContainer = $VBoxContainer/LangOptionButton
+@onready var lang_option_button: HBoxContainer = %LangOptionButton
 
 
 func _ready() -> void:

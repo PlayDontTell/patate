@@ -4,21 +4,20 @@ signal rebind_requested(action: StringName)
 signal reset_requested(action: StringName)
 
 @onready var action_label: Label = %ActionLabel
-@onready var binding_btn: Button = $BindingBtn
+@onready var binding_btn: Button = %BindingBtn
 @onready var reset_btn: Button = $ResetBtn
 
 var action: StringName
 var device_filter: DeviceManager.InputMethod
 
 
-func setup(p_action: StringName, p_device_filter: DeviceManager.InputMethod) -> void:
-	action = p_action
-	device_filter = p_device_filter
-	action_label.text = " ".join(Array(action.split("_")).map(func(w): return w.capitalize()))
+func _ready() -> void:
 	refresh()
 
 
 func refresh() -> void:
+	action_label.text = " ".join(Array(action.split("_")).map(func(w): return w.capitalize()))
+	
 	var event : InputEvent = InputManager.get_binding_for_device(action, device_filter)
 	
 	binding_btn.text = event.as_text() if event else "Unbound"
