@@ -20,7 +20,7 @@ func _ready() -> void:
 func refresh() -> void:
 	action_label.text = " ".join(Array(action.split("_")).map(func(w): return w.capitalize()))
 	
-	var event : InputEvent = InputManager.get_binding_for_device(action, input_methods[0])
+	var event : InputEvent = _get_current_event()
 	
 	_update_binding_btn(event)
 	
@@ -35,9 +35,18 @@ func set_listening(is_listening: bool) -> void:
 	if is_listening:
 		binding_btn.text = "SETTINGS_BINDINGS_PRESS_A_KEY"
 		binding_btn.icon = null
+		binding_btn.set_theme_type_variation("Button")
 	else:
-		_update_binding_btn(InputManager.get_binding_for_device(action, input_methods[0]))
+		_update_binding_btn(_get_current_event())
 	reset_btn.disabled = is_listening
+
+
+func _get_current_event() -> InputEvent:
+	for method in input_methods:
+		var event : InputEvent = InputManager.get_binding_for_device(action, method)
+		if event != null:
+			return event
+	return null
 
 
 func _get_default_event() -> InputEvent:
@@ -70,6 +79,8 @@ func _update_binding_btn(event: InputEvent) -> void:
 	if texture:
 		binding_btn.icon = texture
 		binding_btn.text = ""
+		binding_btn.set_theme_type_variation("ImageButton")
 	else:
 		binding_btn.icon = null
 		binding_btn.text = event.as_text()
+		binding_btn.set_theme_type_variation("Button")
