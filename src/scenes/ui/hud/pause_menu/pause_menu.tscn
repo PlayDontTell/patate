@@ -38,17 +38,15 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="SaveFileSelectionScreen" parent="PauseMenuController" unique_id=1047122757 instance=ExtResource("7_ubglf")]
+layout_mode = 1
+
 [node name="ReturnToMainMenuDialog" parent="PauseMenuController" unique_id=748535725 instance=ExtResource("5_y8f3s")]
 layout_mode = 1
 statement_key = "RETURN_TO_MAIN_MENU_STATEMENT"
-confirm_btn_key = "RETURN_TO_MAIN_MENU_RETURN_BUTTON"
-cancel_btn_key = "EXIT_DIALOG_CANCEL_BUTTON"
+confirm_btn_key = "RETURN_TO_MAIN_MENU_CONFIRM_BUTTON"
 
 [node name="SaveAndExitDialog" parent="PauseMenuController" unique_id=114939881 instance=ExtResource("5_y8f3s")]
 layout_mode = 1
-statement_key = "RETURN_TO_MAIN_MENU_STATEMENT"
-confirm_btn_key = "RETURN_TO_MAIN_MENU_RETURN_BUTTON"
-cancel_btn_key = "EXIT_DIALOG_CANCEL_BUTTON"
-
-[node name="SaveFileSelectionScreen" parent="PauseMenuController" unique_id=1047122757 instance=ExtResource("7_ubglf")]
-layout_mode = 1
+statement_key = "SAVE_AND_EXIT_DIALOG_STATEMENT"
+confirm_btn_key = "SAVE_AND_EXIT_DIALOG_CONFIRM_BUTTON"

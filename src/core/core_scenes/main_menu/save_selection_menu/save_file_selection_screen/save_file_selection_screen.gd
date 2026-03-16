@@ -14,8 +14,14 @@ signal save_completed
 
 var mode : SaveManager.Mode = SaveManager.Mode.LOADING
 
+var save_file_path_to_handle : String = ""
+
 
 func _ready() -> void:
+	create_anyway_dialog.confirm_request.connect(_handle_create_save_request)
+	load_anyway_dialog.confirm_request.connect(_handle_load_save_request)
+	overwrite_dialog.confirm_request.connect(_handle_overwrite_save_request)
+	save_file_deletion_dialog.confirm_request.connect(_handle_delete_file)
 	super._ready()
 
 
@@ -52,18 +58,16 @@ func update() -> void:
 		new_save_file_container.request_load_save_file.connect(_ask_load_file)
 		new_save_file_container.mode = mode
 		save_file_list.add_child(new_save_file_container)
+	
+	if _active:
+		grab_default_focus()
 
 
 func _ask_save_file_deletion(save_file_path : String, _save_name : String) -> void:
-	save_file_deletion_dialog.format_dict = {"save_file_name": save_file_path.get_file()}
-	save_file_deletion_dialog.refresh()
+	save_file_path_to_handle = save_file_path
+	
+	save_file_deletion_dialog.set_format_dict({"save_file_name": save_file_path.get_file()})
 	save_file_deletion_dialog.activate()
-	
-	var confirmed: bool = await save_file_deletion_dialog.outcome_received
-	if not confirmed:
-		return
-	
-	SaveManager.delete_file(save_file_path)
 
 
 func _ask_create_file() -> void:
@@ -71,43 +75,51 @@ func _ask_create_file() -> void:
 		SaveManager.Mode.LOADING:
 			if not SaveManager.save_data._is_empty:
 				create_anyway_dialog.activate()
-				
-				var confirmed: bool = await create_anyway_dialog.outcome_received
-				if not confirmed:
-					return
-			
-			await SaveManager.create_new_save()
-			G.request_core_scene.emit(&"GAME")
+			else:
+				_handle_create_save_request()
 		
 		SaveManager.Mode.SAVING:
-			await SaveManager.manual_save()
-			save_completed.emit()
+			_handle_manual_save_request()
 
 
 func _ask_load_file(save_file_path: String, save_data: SaveData) -> void:
+	save_file_path_to_handle = save_file_path
+	
 	match mode:
 		SaveManager.Mode.LOADING:
 			if not SaveManager.save_data._is_empty:
-				load_anyway_dialog.format_dict = {"save_file_name": save_file_path}
-				load_anyway_dialog.refresh()
+				load_anyway_dialog.set_format_dict({"save_file_name": save_file_path})
 				load_anyway_dialog.activate()
-				
-				var confirmed: bool = await load_anyway_dialog.outcome_received
-				if not confirmed:
-					return
-			
-			SaveManager.load_save_file(save_file_path)
-			G.request_core_scene.emit(&"GAME")
+			else:
+				_handle_load_save_request()
 		
 		SaveManager.Mode.SAVING:
 			if save_data != null and not save_data._is_empty:
-				overwrite_dialog.format_dict = {"save_file_name": save_file_path}
-				overwrite_dialog.refresh()
+				overwrite_dialog.set_format_dict({"save_file_name": save_file_path})
 				overwrite_dialog.activate()
-				
-				var confirmed: bool = await overwrite_dialog.outcome_received
-				if not confirmed:
-					return
-			
-			await SaveManager.overwrite_save(save_file_path)
-			save_completed.emit()
+			else:
+				_handle_overwrite_save_request()
+
+
+func _handle_manual_save_request() -> void:
+	await SaveManager.manual_save()
+	save_completed.emit()
+
+
+func _handle_create_save_request() -> void:
+	await SaveManager.create_new_save()
+	G.request_core_scene.emit(&"GAME")
+
+
+func _handle_load_save_request() -> void:
+	SaveManager.load_save_file(save_file_path_to_handle)
+	G.request_core_scene.emit(&"GAME")
+
+
+func _handle_overwrite_save_request() -> void:
+	await SaveManager.overwrite_save(save_file_path_to_handle)
+	save_completed.emit()
+
+
+func _handle_delete_file() -> void:
+	SaveManager.delete_file(save_file_path_to_handle)

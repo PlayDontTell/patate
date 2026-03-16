@@ -10,9 +10,9 @@ enum State {
 
 @onready var panel_main:        Control = $PauseScreen
 @onready var panel_settings:    Control = $SettingsScreen
-@onready var return_to_main_menu_dialog: 	Control = $ReturnToMainMenuDialog
-@onready var save_and_exit_dialog: 			Control = $SaveAndExitDialog
 @onready var save_file_selection_screen: 	Control = $SaveFileSelectionScreen
+@onready var return_to_main_menu_dialog: 	CustomConfirmationDialog = $ReturnToMainMenuDialog
+@onready var save_and_exit_dialog: 			CustomConfirmationDialog = $SaveAndExitDialog
 
 @export var initial_state : State = State.MAIN
 
@@ -39,27 +39,15 @@ func _ready() -> void:
 
 	panel_settings.back_requested.connect(go_back)
 	
-	return_to_main_menu_dialog.outcome_received.connect(
-		func(confirmed: bool):
-			if confirmed:
-				handle_main_menu_request()
-			else:
-				go_back()
-	)
+	return_to_main_menu_dialog.cancel_request.connect(go_back)
+	return_to_main_menu_dialog.confirm_request.connect(handle_main_menu_request)
 	
 	save_file_selection_screen.back_requested.connect(go_back)
 	save_file_selection_screen.save_completed.connect(close)
 	
-	save_and_exit_dialog.outcome_received.connect(
-		func(confirmed: bool):
-			if confirmed:
-				handle_exit_request()
-			else:
-				go_back()
-	)
-	
-	save_and_exit_dialog.format_dict = {"game_name": ProjectSettings.get_setting("application/config/name")}
-	save_and_exit_dialog.refresh()
+	save_and_exit_dialog.cancel_request.connect(go_back)
+	save_and_exit_dialog.confirm_request.connect(handle_exit_request)
+	save_and_exit_dialog.set_format_dict({"game_name": ProjectSettings.get_setting("application/config/name")})
 	
 	SaveManager.before_screenshot.connect(hide)
 	SaveManager.after_screenshot.connect(show)

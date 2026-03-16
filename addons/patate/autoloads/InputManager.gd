@@ -366,7 +366,10 @@ func load_bindings() -> void:
 	if not data:
 		return
 	
-	for entry in data.entries:                                                                                                                                                                                                                  
+	for entry in data.entries:
+		if not (entry.action in CONTEXT_RULES[Context.GAMEPLAY]):
+			continue
+		
 		if InputMap.has_action(entry.action) and entry.event != null:                                                                                                                                                                           
 			var method := DeviceManager.get_input_method_from_event(entry.event)
 			for existing in InputMap.action_get_events(entry.action).duplicate():
@@ -386,7 +389,7 @@ func _save_bindings() -> void:
 	var bindings: Array[InputBindingEntry] = []
 	var saved: Array[String] = []  # avoid duplicates
 	
-	for actions in CONTEXT_RULES.values():
+	for actions in CONTEXT_RULES[Context.GAMEPLAY]:
 		for action: String in actions:
 			if action in saved or not InputMap.has_action(action):
 				continue

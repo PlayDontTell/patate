@@ -3,6 +3,8 @@ extends MarginContainer
 signal request_save_slot_selection(save_slot_index: int)
 signal request_save_slot_reset(save_slot_index: int)
 
+@onready var save_slot_name_label: Label = %SaveSlotNameLabel
+
 @onready var reset_btn: AnimatedButton = %ResetBtn
 @onready var select_btn: AnimatedButton = %SelectBtn
 
@@ -40,6 +42,9 @@ func _ready() -> void:
 	if save_data._is_empty:
 		save_info_container.modulate.a = 0.
 		reset_btn.hide()
+	
+	if not save_data.save_slot_name.is_empty():
+		save_slot_name_label.set_text(save_data.save_slot_name)
 
 
 func _on_select_btn_pressed() -> void:

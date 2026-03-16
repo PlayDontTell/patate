@@ -13,7 +13,7 @@ enum State {
 @onready var panel_main:        Control = %TitleScreen
 @onready var panel_settings:    Control = $SettingsScreen
 @onready var panel_credits:     Control = $CreditsScreen
-@onready var panel_exit_dialog: Control = $ExitDialog
+@onready var panel_exit_dialog: CustomConfirmationDialog = $ExitDialog
 @onready var panel_save_file_selection: Control = $SaveFileSelectionScreen
 @onready var panel_save_slot_selection: Control = $SaveSlotSelectionScreen
 @onready var panel_save_slot_creation: Control = $SaveSlotCreationScreen
@@ -58,18 +58,13 @@ func _ready() -> void:
 	panel_save_slot_selection.save_slot_selected.connect(_on_save_slot_selected)
 	
 	panel_save_slot_creation.back_requested.connect(go_back)
+	panel_save_slot_creation.slot_creation_confirmed.connect(_on_slot_creation_confirmed)
 	
 	panel_credits.back_requested.connect(go_back)
-	panel_exit_dialog.outcome_received.connect(
-		func(confirmed: bool):
-			if confirmed:
-				get_tree().quit()
-			else:
-				go_back()
-	)
 	
-	panel_exit_dialog.format_dict = {"game_name": ProjectSettings.get_setting("application/config/name")}
-	panel_exit_dialog.refresh()
+	panel_exit_dialog.confirm_request.connect(get_tree().quit)
+	panel_exit_dialog.cancel_request.connect(go_back)
+	panel_exit_dialog.set_format_dict({"game_name": ProjectSettings.get_setting("application/config/name")})
 	
 	super._ready()  # always last — triggers go_to(_initial_state)
 
@@ -134,3 +129,9 @@ func _on_save_slot_selected() -> void:
 			# No setup needed — create a fresh save file and start the game immediately.
 			await SaveManager.create_new_save()
 			G.request_core_scene.emit(&"GAME")
+
+
+func _on_slot_creation_confirmed(slot_name: String) -> void:
+	SaveManager.save_data.save_slot_name = slot_name
+	await SaveManager.create_new_save()
+	G.request_core_scene.emit(&"GAME")

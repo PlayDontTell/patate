@@ -39,10 +39,10 @@ enum SaveType {
 @export_storage var event_log: Array = []
 
 ## Save slot name
-@export var save_slot_name: String = "default"
+@export var save_slot_name: String = ""
 
 ## Save Name presented to the player
-@export var save_name: String = "default"
+@export var save_name: String = ""
 
 
 func _init() -> void:

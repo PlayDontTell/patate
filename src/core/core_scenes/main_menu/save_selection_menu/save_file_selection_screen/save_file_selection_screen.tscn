@@ -82,31 +82,28 @@ metadata/_custom_type_script = "uid://dvjgopdw7ubc1"
 unique_name_in_owner = true
 layout_mode = 1
 theme = null
-statement_key = "LOADING_WARNING_DIALOG_CREATE_ANYWAY_STATEMENT"
-confirm_btn_key = "LOADING_WARNING_DIALOG_LOAD_BUTTON"
-cancel_btn_key = "EXIT_DIALOG_CANCEL_BUTTON"
+statement_key = "CREATE_ANYWAY_DIALOG_STATEMENT"
+confirm_btn_key = "CREATE_ANYWAY_DIALOG_CONFIRM_BUTTON"
 
 [node name="LoadAnywayDialog" parent="." unique_id=1493332920 instance=ExtResource("6_lk581")]
 unique_name_in_owner = true
 layout_mode = 1
 theme = null
-statement_key = "LOADING_WARNING_DIALOG_LOADING_ANYWAY_STATEMENT"
-confirm_btn_key = "LOADING_WARNING_DIALOG_LOAD_BUTTON"
-cancel_btn_key = "EXIT_DIALOG_CANCEL_BUTTON"
+statement_key = "LOAD_ANYWAY_DIALOG_STATEMENT"
+confirm_btn_key = "LOAD_ANYWAY_DIALOG_CONFIRM_BUTTON"
 
 [node name="OverwriteDialog" parent="." unique_id=543906930 instance=ExtResource("6_lk581")]
 unique_name_in_owner = true
 layout_mode = 1
 theme = null
-statement_key = "LOADING_WARNING_DIALOG_OVERWRITE_ANYWAY_STATEMENT"
+statement_key = "OVERWRITE_DIALOG_STATEMENT"
 confirm_btn_key = "SAVE_FILE_OVERWRITE_BUTTON"
-cancel_btn_key = "EXIT_DIALOG_CANCEL_BUTTON"
 
 [node name="SaveFileDeletionDialog" parent="." unique_id=523348475 instance=ExtResource("6_lk581")]
 unique_name_in_owner = true
 layout_mode = 1
 theme = null
 statement_key = "SAVE_FILE_DELETION_DIALOG_STATEMENT"
-confirm_btn_key = "SAVE_FILE_DELETION_DIALOG_APPLY"
+confirm_btn_key = "SAVE_FILE_DELETION_DIALOG_CONFIRM_BUTTON"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackBtn" to="." method="_on_back_btn_pressed"]

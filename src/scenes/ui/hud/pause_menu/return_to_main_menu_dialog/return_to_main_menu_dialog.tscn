@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://be17ij3ph4qla"]
+[gd_scene format=3 uid="uid://bmxqx33tbyy4w"]
 
 [ext_resource type="Theme" uid="uid://7ulrlyfv85ax" path="res://assets/themes/default_game_theme/default_game_theme.tres" id="1_n0fbu"]
-[ext_resource type="Script" uid="uid://cako63joudgkn" path="res://src/scenes/ui/hud/pause_menu/return_to_main_menu_dialog/return_to_main_menu_dialog.gd" id="2_kjg3c"]
+[ext_resource type="Script" uid="uid://drbwuddxp186l" path="res://addons/patate/classes/CustomConfirmationDialog.gd" id="2_2e36g"]
 [ext_resource type="Script" uid="uid://dvjgopdw7ubc1" path="res://addons/patate/classes/AnimatedButton.gd" id="3_y3yd8"]
 [ext_resource type="Resource" uid="uid://bur6phiqbk2j5" path="res://assets/themes/default_game_theme/default_animated_button_config.tres" id="4_whl8m"]
 
-[node name="ReturnToMainMenuDialog" type="Control" unique_id=949512050]
+[node name="ReturnToMainMenuDialog" type="Control" unique_id=756267130]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -14,8 +14,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_n0fbu")
-script = ExtResource("2_kjg3c")
-metadata/_custom_type_script = "uid://rw4p3emba8ai"
+script = ExtResource("2_2e36g")
+metadata/_custom_type_script = "uid://drbwuddxp186l"
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1551058407]
 layout_mode = 1
@@ -78,4 +78,3 @@ config = ExtResource("4_whl8m")
 metadata/_custom_type_script = "uid://dvjgopdw7ubc1"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CancelBtn" to="." method="_on_cancel_btn_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]

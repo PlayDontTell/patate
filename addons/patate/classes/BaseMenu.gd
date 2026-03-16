@@ -55,14 +55,19 @@ func deactivate() -> void:
 
 ## Focuses the default node for this panel.
 ## Called by BaseMenuController when no focus memory exists for this state.
+#func grab_default_focus() -> void:
+	#var target := _get_default_focus()
+	#if is_instance_valid(target) and target.focus_mode == Control.FOCUS_ALL:
+		#target.grab_focus()
 func grab_default_focus() -> void:
+	if DeviceManager.last_input_method in [DeviceManager.InputMethod.MOUSE, DeviceManager.InputMethod.TOUCH]:
+		return
 	var target := _get_default_focus()
 	if is_instance_valid(target) and target.focus_mode == Control.FOCUS_ALL:
 		target.grab_focus()
 
 
 #Overridable hooks
-
 ## Called when the active input device changes.
 ## Override to swap button prompt icons, show/hide touch UI, etc.
 func _on_device_changed(_method: DeviceManager.InputMethod) -> void:
@@ -74,6 +79,7 @@ func _on_method_changed(method: DeviceManager.InputMethod) -> void:
 	if not _active:
 		return
 	_on_device_changed(method)
+
 
 func _get_default_focus() -> Control:
 	if is_instance_valid(default_focus):

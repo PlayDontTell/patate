@@ -46,24 +46,12 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="SaveSlotCreationScreen" parent="CanvasLayer/MainMenuController" unique_id=46592746 instance=ExtResource("15_4e6ea")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+visible = false
+layout_mode = 1
 
 [node name="ExitDialog" parent="CanvasLayer/MainMenuController" unique_id=748535725 instance=ExtResource("9_05wkc")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 40.0
-offset_bottom = 40.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 1
 theme = null
 statement_key = "EXIT_DIALOG_STATEMENT"
 confirm_btn_key = "EXIT_DIALOG_EXIT_BUTTON"
-cancel_btn_key = "EXIT_DIALOG_EXIT_BUTTON"
 input_context = 5

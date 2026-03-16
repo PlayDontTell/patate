@@ -6,16 +6,18 @@ signal save_slot_selected
 signal back_requested
 
 @onready var save_slot_list: GridContainer = %SaveSlotList
-@onready var save_slot_reset_dialog: Control = %SaveSlotResetDialog
+@onready var save_slot_reset_dialog: CustomConfirmationDialog = %SaveSlotResetDialog
+
+var save_slot_idx_to_handle : int = 0
 
 
 func _ready() -> void:
-	self.deactivated.connect(save_slot_reset_dialog.deactivate)
+	save_slot_reset_dialog.confirm_request.connect(_handle_save_slot_reset_request)
+	
 	super._ready()
 
 
 func _on_back_btn_pressed() -> void:
-	save_slot_reset_dialog.deactivate()
 	back_requested.emit()
 
 
@@ -49,6 +51,10 @@ func update() -> void:
 		new_save_slot_container.request_save_slot_reset.connect(_ask_save_slot_reset)
 		
 		save_slot_list.add_child(new_save_slot_container)
+	
+	if _active:
+		grab_default_focus()
+
 
 
 func _select_save_slot(save_slot_idx: int) -> void:
@@ -60,12 +66,12 @@ func _ask_save_slot_reset(save_slot_idx: int) -> void:
 	if not SaveManager.save_data_list.has(save_slot_idx):
 		return
 	
-	save_slot_reset_dialog.refresh_label(save_slot_idx)
+	save_slot_idx_to_handle = save_slot_idx
+	
+	save_slot_reset_dialog.set_format_dict({"save_slot_idx": save_slot_idx + 1})
 	save_slot_reset_dialog.activate()
-	
-	await save_slot_reset_dialog.save_reset_requested
-	
-	for save_element in SaveManager.save_data_list[save_slot_idx]:
+
+
+func _handle_save_slot_reset_request() -> void:
+	for save_element in SaveManager.save_data_list[save_slot_idx_to_handle]:
 		SaveManager.delete_file(save_element.file_path)
-	
-	save_slot_reset_dialog.deactivate()

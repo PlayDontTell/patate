@@ -6,6 +6,11 @@
 [ext_resource type="Resource" uid="uid://bur6phiqbk2j5" path="res://assets/themes/default_game_theme/default_animated_button_config.tres" id="3_w2igd"]
 
 [node name="SaveSlotContainer" type="MarginContainer" unique_id=1435484849]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_j3qp1")
@@ -47,7 +52,7 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-text = "RESET_SAVE_SLOT"
+text = "RESET_SAVE_SLOT_BUTTON"
 script = ExtResource("2_j3qp1")
 config = ExtResource("3_w2igd")
 metadata/_custom_type_script = "uid://dvjgopdw7ubc1"
@@ -67,6 +72,14 @@ expand_icon = true
 script = ExtResource("2_j3qp1")
 config = ExtResource("3_w2igd")
 metadata/_custom_type_script = "uid://dvjgopdw7ubc1"
+
+[node name="SaveSlotNameLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=321380060]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"HeaderLarge"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SaveInfoContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1710932878]
 unique_name_in_owner = true

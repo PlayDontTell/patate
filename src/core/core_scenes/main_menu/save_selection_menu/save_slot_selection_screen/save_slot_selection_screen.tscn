@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dvkqvocoymhu8" path="res://src/core/core_scenes/main_menu/save_selection_menu/save_slot_selection_screen/save_slot_selection_screen.gd" id="2_8ktei"]
 [ext_resource type="Script" uid="uid://dvjgopdw7ubc1" path="res://addons/patate/classes/AnimatedButton.gd" id="4_mywwh"]
 [ext_resource type="Resource" uid="uid://bur6phiqbk2j5" path="res://assets/themes/default_game_theme/default_animated_button_config.tres" id="5_vijef"]
-[ext_resource type="Script" uid="uid://dqwf8yco3ats7" path="res://src/core/core_scenes/main_menu/save_selection_menu/save_slot_selection_screen/save_slot_deletion_dialog.gd" id="6_1pr1j"]
+[ext_resource type="PackedScene" uid="uid://ddc8hb0ksl0dw" path="res://addons/patate/scenes/custom_confirmation_dialog.tscn" id="6_4xuy8"]
 
 [node name="SaveSlotSelectionScreen" type="Control" unique_id=1047122757 node_paths=PackedStringArray("default_focus")]
 layout_mode = 3
@@ -67,97 +67,10 @@ script = ExtResource("4_mywwh")
 config = ExtResource("5_vijef")
 metadata/_custom_type_script = "uid://dvjgopdw7ubc1"
 
-[node name="SaveSlotResetDialog" type="Control" parent="." unique_id=1755758403 node_paths=PackedStringArray("default_focus")]
+[node name="SaveSlotResetDialog" parent="." unique_id=748535725 instance=ExtResource("6_4xuy8")]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("6_1pr1j")
-input_context = 2
-default_focus = NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CancelBtn")
-metadata/_custom_type_script = "uid://rw4p3emba8ai"
-
-[node name="ColorRect" type="ColorRect" parent="SaveSlotResetDialog" unique_id=1721712967]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.2509804)
-
-[node name="PanelContainer" type="PanelContainer" parent="SaveSlotResetDialog" unique_id=69034203]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -306.5
-offset_top = -82.5
-offset_right = 306.5
-offset_bottom = 82.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="SaveSlotResetDialog/PanelContainer" unique_id=1246195965]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SaveSlotResetDialog/PanelContainer/MarginContainer" unique_id=679086416]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 30
-alignment = 1
-
-[node name="DeletionStatementLabel" type="Label" parent="SaveSlotResetDialog/PanelContainer/MarginContainer/VBoxContainer" unique_id=1000293399]
-unique_name_in_owner = true
-layout_mode = 2
-text = "DELETE_SAVE_SLOT_DIALOG_STATEMENT"
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="SaveSlotResetDialog/PanelContainer/MarginContainer/VBoxContainer" unique_id=1460162042]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 40
-alignment = 1
-
-[node name="CancelBtn" type="Button" parent="SaveSlotResetDialog/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=451556803]
-layout_mode = 2
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath(".")
-focus_neighbor_right = NodePath("../ResetBtn")
-focus_neighbor_bottom = NodePath(".")
-focus_next = NodePath("../ResetBtn")
-focus_previous = NodePath(".")
-text = "RESET_SAVE_SLOT_CANCEL"
-script = ExtResource("4_mywwh")
-config = ExtResource("5_vijef")
-metadata/_custom_type_script = "uid://dvjgopdw7ubc1"
-
-[node name="ResetBtn" type="Button" parent="SaveSlotResetDialog/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=126339037]
-layout_mode = 2
-focus_neighbor_left = NodePath("../CancelBtn")
-focus_neighbor_top = NodePath(".")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath(".")
-focus_next = NodePath(".")
-focus_previous = NodePath("../CancelBtn")
-text = "RESET_SAVE_SLOT_APPLY"
-script = ExtResource("4_mywwh")
-config = ExtResource("5_vijef")
-metadata/_custom_type_script = "uid://dvjgopdw7ubc1"
+statement_key = "RESET_SAVE_SLOT_DIALOG_STATEMENT"
+confirm_btn_key = "RESET_SAVE_SLOT_DIALOG_CONFIRM_BUTTON"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackBtn" to="." method="_on_back_btn_pressed"]
-[connection signal="pressed" from="SaveSlotResetDialog/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CancelBtn" to="SaveSlotResetDialog" method="_on_cancel_btn_pressed"]
-[connection signal="pressed" from="SaveSlotResetDialog/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ResetBtn" to="SaveSlotResetDialog" method="_on_reset_btn_pressed"]
