@@ -1,26 +1,45 @@
+@tool
 ## Project-level configuration resource.
 ## Edit res://project_config.tres in the inspector to configure your project.
 ## This is the single place a developer needs to look when setting up or deploying the game.
 class_name ProjectConfig
 extends Resource
 
+func _init() -> void:
+	if not core_scenes.is_empty():
+		return
+	
+	var game := CoreSceneEntry.new()
+	game.name = &"GAME"
+	game.path = "res://src/core/core_scenes/game/game.tscn"
+	
+	var loading := CoreSceneEntry.new()
+	loading.name = G.LOADING
+	loading.path = "res://src/core/core_scenes/loading/loading_screen.tscn"
+	
+	var main_menu := CoreSceneEntry.new()
+	main_menu.name = G.MAIN_MENU
+	main_menu.path = "res://src/core/core_scenes/main_menu/main_menu.tscn"
+	
+	core_scenes = [game, loading, main_menu]
+
+
+
 ## Returns the PackedScene for a given CoreScene, or null if not found.
-func get_scene(core_scene : StringName) -> PackedScene:
-	if core_scenes.has(core_scene):
-		return core_scenes[core_scene]
-	push_warning("ProjectConfig: no scene registered for CoreScene %s" % core_scene)
-	return null
+func get_scene(core_scene: StringName) -> String:
+	for entry in core_scenes:
+		if entry.name == core_scene:
+			return entry.path
+	push_warning("ProjectConfig: no scene registered for %s" % core_scene)
+	return ""
+
 
 ## The current release mode. Switch between DEV, RELEASE and EXPO before exporting.
 @export var release_mode : G.ReleaseMode = G.ReleaseMode.DEV
 
 @export_group("Core Scenes")
 ## One entry per CoreScene enum value. Order does not matter.
-@export var core_scenes : Dictionary[StringName, PackedScene] = {
-	&"GAME": preload("res://src/core/core_scenes/game/game.tscn"),
-	G.LOADING: preload("res://src/core/core_scenes/loading/loading_screen.tscn"),
-	G.MAIN_MENU: preload("res://src/core/core_scenes/main_menu/main_menu.tscn"),
-}
+@export var core_scenes : Array[CoreSceneEntry] = []
 
 @export_group("Start Scenes")
 ## Scene to load on startup in DEV release mode.
@@ -80,7 +99,7 @@ func get_scene(core_scene : StringName) -> PackedScene:
 ## File extension used for all save and settings files.
 @export var SAVE_FILE_EXTENSION : String = ".save"
 ## The default image used to associate with saves
-@export var DEFAULT_SAVE_IMAGE : Texture2D = preload("res://assets/art/ui/temp/cursors/Vector/Basic/line_cross.svg")
+@export var DEFAULT_SAVE_IMAGE : Texture2D = preload("res://addons/patate/assets/cursors/line_cross.svg")
 ## The size of save file screenshots by default
 @export var SCREENSHOT_SIZE : Vector2i = Vector2i(80, 40)
 

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://ddpsqwc7hq0fx"]
 
 [ext_resource type="Script" uid="uid://biiubgs1ydnfg" path="res://src/core/core_scenes/main_menu/settings_menu/setting_slider.gd" id="1_h62tr"]
-[ext_resource type="Texture2D" uid="uid://7enmmepqmwv4" path="res://assets/art/ui/temp/game-icons/PNG/White/1x/backward.png" id="2_0s6jd"]
+[ext_resource type="Texture2D" uid="uid://7enmmepqmwv4" path="res://_examples/temp/assets/game-icons/PNG/White/1x/backward.png" id="2_0s6jd"]
 [ext_resource type="Script" uid="uid://dvjgopdw7ubc1" path="res://addons/patate/classes/AnimatedButton.gd" id="3_m414o"]
 [ext_resource type="Resource" uid="uid://bur6phiqbk2j5" path="res://assets/themes/default_game_theme/default_animated_button_config.tres" id="4_7ydtr"]
-[ext_resource type="Texture2D" uid="uid://vrok71kbmo3u" path="res://assets/art/ui/temp/game-icons/PNG/White/1x/forward.png" id="5_k8rtd"]
+[ext_resource type="Texture2D" uid="uid://vrok71kbmo3u" path="res://_examples/temp/assets/game-icons/PNG/White/1x/forward.png" id="5_k8rtd"]
 [ext_resource type="PackedScene" uid="uid://ims4otaqof5w" path="res://src/core/core_scenes/main_menu/settings_menu/reset_btn.tscn" id="6_0s6jd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0s6jd"]

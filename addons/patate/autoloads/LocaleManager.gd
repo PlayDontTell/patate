@@ -128,11 +128,10 @@ func get_flag_emoji_from_locale(locale: String) -> String:
 
 func get_flag_icon(locale: String) -> Texture2D:
 	var country_code: String = get_country_from_locale(locale).to_upper()
-	var icon_path: String = "res://assets/art/ui/temp/country_flags/30x20px/" + country_code + ".png"
+	var icon_path: String = "res://addons/patate/assets/country-flags/30x20px/" + country_code + ".png"
 	if FileAccess.file_exists(icon_path):
 		return load(icon_path)
 	return null
-
 
 
 var _bindings: Dictionary = {}

@@ -1,7 +1,7 @@
 class_name InputPrompts                                
 																						
 
-const _BASE_PATH := "res://assets/art/ui/temp/input-prompts/"                                                                                                                                                                               
+const _BASE_PATH := "res://addons/patate/assets/input-prompts/"                                                                                                                                                                               
 
 enum GamepadBrand {                                                                                                                                                                                                                         
 	XBOX,     

@@ -2,6 +2,18 @@
 
 [ext_resource type="FontFile" uid="uid://b3b6516hmkrxd" path="res://assets/fonts/inconsolata/Inconsolata-Bold.ttf" id="1_fivoe"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_et63i"]
+bg_color = Color(0, 0, 0, 0.2901961)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+corner_detail = 1
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 1.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fivoe"]
 bg_color = Color(0.53, 0.53, 0.53, 0.16470589)
 border_width_left = 1
@@ -19,12 +31,34 @@ shadow_color = Color(0.48, 0.48, 0.48, 0.078431375)
 shadow_size = 1
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmj8w"]
+bg_color = Color(0, 0, 0, 0.2901961)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+corner_detail = 1
+expand_margin_left = 1.0
+expand_margin_top = 3.0
+expand_margin_bottom = 4.0
+
 [resource]
 default_font = ExtResource("1_fivoe")
 default_font_size = 13
+GridContainer/constants/h_separation = 2
+GridContainer/constants/v_separation = -3
+HSeparator/constants/separation = 10
+HSeparator/styles/separator = SubResource("StyleBoxFlat_et63i")
 Label/colors/font_shadow_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 2
 Label/constants/shadow_offset_x = 0
 Label/constants/shadow_offset_y = 0
 Label/constants/shadow_outline_size = 4
+NameLabel/base_type = &"Label"
+NameLabel/colors/font_color = Color(1, 1, 1, 0.8156863)
+NameLabel/colors/font_shadow_color = Color(0, 0, 0, 0.45490196)
+NameLabel/font_sizes/font_size = 13
 Panel/styles/panel = SubResource("StyleBoxFlat_fivoe")
+VBoxContainer/constants/separation = -2
+VSeparator/styles/separator = SubResource("StyleBoxFlat_kmj8w")

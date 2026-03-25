@@ -1,8 +1,9 @@
 ## only export variables will be serialized (and so saved)
 @tool
-@icon("res://assets/art/ui/temp/game-icons/PNG/White/2x/save.png")
+@icon("res://addons/patate/assets/icons/save.png")
 class_name SaveData
 extends Resource
+
 
 @export_storage var _is_empty: bool = true
 @export_storage var game_name : String = ""

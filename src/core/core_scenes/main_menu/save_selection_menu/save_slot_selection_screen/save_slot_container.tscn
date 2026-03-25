@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://sm1lek67emkb"]
 
-[ext_resource type="Texture2D" uid="uid://bji78udv4da6c" path="res://assets/art/ui/temp/game-icons/PNG/White/2x/plus.png" id="1_bjyrb"]
+[ext_resource type="Texture2D" uid="uid://bji78udv4da6c" path="res://_examples/temp/assets/game-icons/PNG/White/2x/plus.png" id="1_bjyrb"]
 [ext_resource type="Script" uid="uid://b6qbyj4fn63d4" path="res://src/core/core_scenes/main_menu/save_selection_menu/save_slot_selection_screen/save_slot_container.gd" id="1_j3qp1"]
 [ext_resource type="Script" uid="uid://dvjgopdw7ubc1" path="res://addons/patate/classes/AnimatedButton.gd" id="2_j3qp1"]
 [ext_resource type="Resource" uid="uid://bur6phiqbk2j5" path="res://assets/themes/default_game_theme/default_animated_button_config.tres" id="3_w2igd"]

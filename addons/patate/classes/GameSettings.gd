@@ -2,7 +2,7 @@
 ## Add a new setting here — nothing else needs updating for save/load to work.
 ## Side effects (audio bus, display mode, etc.) are handled in adjust_setting().
 
-@icon("res://assets/art/ui/temp/game-icons/PNG/White/2x/gear.png")
+@icon("res://addons/patate/assets/icons/gear.png")
 class_name GameSettings
 extends Resource
 

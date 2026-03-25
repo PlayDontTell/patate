@@ -2,9 +2,10 @@
 ## Configuration resource for a single expo event.
 ## Create one .tres file per event — duplicate default_settings.tres as a starting point.
 ## Leave settings null to use project defaults (G.default_settings).
-@icon("res://assets/art/ui/temp/board-game-icons/PNG/Double (128px)/campfire.png")
+@icon("res://addons/patate/assets/icons/campfire.png")
 class_name ExpoEventConfig
 extends Resource
+
 
 @export_group("Event Info", "")
 ## A description only meant to store info about event config, not used by the game itself.
