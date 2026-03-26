@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://1mdrxoxx3uwp"]
 
 [ext_resource type="Script" uid="uid://qfu7lckgoo2n" path="res://addons/patate/scenes/profile_layers/dev/debug_layer.gd" id="1_r8b2b"]
-[ext_resource type="Texture2D" uid="uid://csfspd6lrbrl8" path="res://_examples/temp/assets/game-icons/PNG/White/1x/minus.png" id="2_cxs3n"]
 [ext_resource type="Texture2D" uid="uid://dwi38q3spugmy" path="res://_examples/temp/assets/game-icons/PNG/White/1x/pause.png" id="2_et63i"]
 [ext_resource type="Theme" uid="uid://bfnq8633hf72j" path="res://assets/themes/debug_theme/debug_theme.tres" id="2_pkd3y"]
-[ext_resource type="Texture2D" uid="uid://c5j60nckpnelq" path="res://_examples/temp/assets/cursors/PNG/Outline/Double/arrow_nw.png" id="4_17ip0"]
-[ext_resource type="Texture2D" uid="uid://caxr6bdrk71nb" path="res://_examples/temp/assets/cursors/PNG/Outline/Double/arrow_ne.png" id="5_xdmg6"]
-[ext_resource type="Texture2D" uid="uid://bvqitim8i4nyw" path="res://_examples/temp/assets/cursors/PNG/Outline/Double/arrow_sw.png" id="6_l3kup"]
-[ext_resource type="Texture2D" uid="uid://cbq3i48rou4l" path="res://_examples/temp/assets/cursors/PNG/Outline/Double/arrow_se.png" id="7_j75wy"]
-[ext_resource type="Texture2D" uid="uid://0wuqxebj2yt1" path="res://_examples/temp/assets/board-game-icons/PNG/Default (64px)/timer_CW_75.png" id="8_l3kup"]
-[ext_resource type="Texture2D" uid="uid://dhusk2gwncfis" path="res://_examples/temp/assets/game-icons/PNG/White/1x/save.png" id="9_ajbra"]
+[ext_resource type="Texture2D" uid="uid://f00kup1epu7m" path="res://addons/patate/assets/icons/minus.png" id="3_vyb6g"]
+[ext_resource type="Texture2D" uid="uid://glku8433we4k" path="res://addons/patate/assets/icons/arrow_nw.png" id="4_dsqob"]
+[ext_resource type="Texture2D" uid="uid://chjx5y1nbx1mo" path="res://addons/patate/assets/icons/arrow_ne.png" id="5_g0bxb"]
+[ext_resource type="Texture2D" uid="uid://d1rebv7unp4p5" path="res://addons/patate/assets/icons/arrow_sw.png" id="6_vyb6g"]
+[ext_resource type="Texture2D" uid="uid://dlfc8dqudcvu1" path="res://addons/patate/assets/icons/arrow_se.png" id="7_ccikl"]
+[ext_resource type="Texture2D" uid="uid://cmb0ej1qgvswr" path="res://addons/patate/assets/icons/timer_CW_75.png" id="8_dsqob"]
 [ext_resource type="Script" uid="uid://cw8mfiasph74v" path="res://addons/patate/scenes/profile_layers/dev/debug_tab.gd" id="9_wvc1r"]
-[ext_resource type="Texture2D" uid="uid://iolu7sf77wu2" path="res://_examples/temp/assets/game-icons/PNG/White/1x/home.png" id="10_wvc1r"]
-[ext_resource type="Texture2D" uid="uid://cim5krxvie3sd" path="res://_examples/temp/assets/game-icons/PNG/White/1x/gear.png" id="11_n7x8m"]
-[ext_resource type="Texture2D" uid="uid://pywfbgj31sdn" path="res://_examples/temp/assets/cursors/PNG/Basic/Default/cursor_none.png" id="12_peuh8"]
+[ext_resource type="Texture2D" uid="uid://2uxeyj1hqvqm" path="res://addons/patate/assets/icons/save.png" id="10_g0bxb"]
+[ext_resource type="Texture2D" uid="uid://l6ahy4pqurdp" path="res://addons/patate/assets/icons/home.png" id="11_ccikl"]
+[ext_resource type="Texture2D" uid="uid://judlhvxk1sy" path="res://addons/patate/assets/icons/gear.png" id="12_0s3yy"]
+[ext_resource type="Texture2D" uid="uid://bqhv1rwbtrfsg" path="res://addons/patate/assets/icons/cursor_none.png" id="13_0je2i"]
+[ext_resource type="Texture2D" uid="uid://btnrirc8qyuuv" path="res://addons/patate/assets/icons/pause.png" id="14_x4r4w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17ip0"]
 bg_color = Color(0, 0, 0, 0.17254902)
@@ -78,7 +79,7 @@ theme = ExtResource("2_pkd3y")
 [node name="DebugPanel" type="MarginContainer" parent="Placement" unique_id=1781119874]
 unique_name_in_owner = true
 layout_mode = 1
-offset_right = 258.0
+offset_right = 288.0
 offset_bottom = 609.0
 mouse_filter = 2
 theme = ExtResource("2_pkd3y")
@@ -111,7 +112,7 @@ size_flags_vertical = 0
 theme = ExtResource("2_pkd3y")
 toggle_mode = true
 button_pressed = true
-icon = ExtResource("2_cxs3n")
+icon = ExtResource("3_vyb6g")
 expand_icon = true
 
 [node name="PositionBtns" type="GridContainer" parent="Placement/DebugPanel/DebugWindow/FrameBtns" unique_id=2003027994]
@@ -127,28 +128,28 @@ columns = 2
 custom_minimum_size = Vector2(12, 12)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_17ip0")
-icon = ExtResource("4_17ip0")
+icon = ExtResource("4_dsqob")
 expand_icon = true
 
 [node name="NE" type="Button" parent="Placement/DebugPanel/DebugWindow/FrameBtns/PositionBtns" unique_id=1629303389]
 custom_minimum_size = Vector2(12, 12)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_17ip0")
-icon = ExtResource("5_xdmg6")
+icon = ExtResource("5_g0bxb")
 expand_icon = true
 
 [node name="SW" type="Button" parent="Placement/DebugPanel/DebugWindow/FrameBtns/PositionBtns" unique_id=538023450]
 custom_minimum_size = Vector2(12, 12)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_17ip0")
-icon = ExtResource("6_l3kup")
+icon = ExtResource("6_vyb6g")
 expand_icon = true
 
 [node name="SE" type="Button" parent="Placement/DebugPanel/DebugWindow/FrameBtns/PositionBtns" unique_id=1504069569]
 custom_minimum_size = Vector2(12, 12)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_17ip0")
-icon = ExtResource("7_j75wy")
+icon = ExtResource("7_ccikl")
 expand_icon = true
 
 [node name="DebugContainer" type="VBoxContainer" parent="Placement/DebugPanel/DebugWindow" unique_id=114576282]
@@ -159,12 +160,12 @@ theme_override_constants/separation = 0
 [node name="Tabs" type="HBoxContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer" unique_id=1154097180]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = -1
+theme_override_constants/separation = 3
 alignment = 1
 
 [node name="Tab1" type="Button" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Tabs" unique_id=1319625986 node_paths=PackedStringArray("info_panel")]
 unique_name_in_owner = true
-modulate = Color(1, 1, 0, 1)
+modulate = Color(1, 0.9666667, 0, 1)
 custom_minimum_size = Vector2(26, 24)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -175,7 +176,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ebpyu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_12p1w")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ajbra")
 toggle_mode = true
-icon = ExtResource("8_l3kup")
+icon = ExtResource("8_dsqob")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("9_wvc1r")
@@ -183,7 +184,7 @@ info_panel = NodePath("../../Panels/TimeInfo")
 
 [node name="Tab2" type="Button" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Tabs" unique_id=897958166 node_paths=PackedStringArray("info_panel")]
 unique_name_in_owner = true
-modulate = Color(0, 1, 1, 1)
+modulate = Color(0, 1.1342824, 1.1730844, 1)
 custom_minimum_size = Vector2(26, 24)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -193,7 +194,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ebpyu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_12p1w")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ajbra")
 toggle_mode = true
-icon = ExtResource("9_ajbra")
+icon = ExtResource("10_g0bxb")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("9_wvc1r")
@@ -201,7 +202,7 @@ info_panel = NodePath("../../Panels/CostsInfo")
 
 [node name="Tab3" type="Button" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Tabs" unique_id=1850420350 node_paths=PackedStringArray("info_panel")]
 unique_name_in_owner = true
-modulate = Color(0.5058824, 1, 0.7372549, 1)
+modulate = Color(0.4862884, 1.1730844, 0.8182398, 1)
 custom_minimum_size = Vector2(26, 24)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -211,7 +212,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ebpyu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_12p1w")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ajbra")
 toggle_mode = true
-icon = ExtResource("10_wvc1r")
+icon = ExtResource("11_ccikl")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("9_wvc1r")
@@ -219,7 +220,7 @@ info_panel = NodePath("../../Panels/MachineInfo")
 
 [node name="Tab4" type="Button" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Tabs" unique_id=928305699 node_paths=PackedStringArray("info_panel")]
 unique_name_in_owner = true
-modulate = Color(1, 0.75686276, 0.74509805, 1)
+modulate = Color(1.1291975, 0.74531543, 0.7251111, 1)
 custom_minimum_size = Vector2(26, 24)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -229,7 +230,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ebpyu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_12p1w")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ajbra")
 toggle_mode = true
-icon = ExtResource("11_n7x8m")
+icon = ExtResource("12_0s3yy")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("9_wvc1r")
@@ -237,7 +238,7 @@ info_panel = NodePath("../../Panels/GameStateInfo")
 
 [node name="Tab5" type="Button" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Tabs" unique_id=486593481 node_paths=PackedStringArray("info_panel")]
 unique_name_in_owner = true
-modulate = Color(0.8156863, 0.8117647, 1, 1)
+modulate = Color(0.8103591, 0.77107716, 1.1638972, 1)
 custom_minimum_size = Vector2(26, 24)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -247,7 +248,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ebpyu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_12p1w")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ajbra")
 toggle_mode = true
-icon = ExtResource("12_peuh8")
+icon = ExtResource("13_0je2i")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("9_wvc1r")
@@ -264,7 +265,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ebpyu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_12p1w")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ajbra")
 toggle_mode = true
-icon = ExtResource("2_et63i")
+icon = ExtResource("14_x4r4w")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("9_wvc1r")
@@ -277,7 +278,7 @@ theme = ExtResource("2_pkd3y")
 theme_override_constants/separation = 0
 
 [node name="TimeInfo" type="MarginContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels" unique_id=1639804594]
-modulate = Color(1, 1, 0, 1)
+modulate = Color(1, 0.9666667, 0, 1)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
@@ -295,7 +296,7 @@ theme = ExtResource("2_pkd3y")
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_bottom = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer" unique_id=769793272]
 layout_mode = 2
@@ -315,7 +316,7 @@ alignment = 1
 [node name="FPSLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=395828892]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 11
+size_flags_horizontal = 7
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
 text = "FPS"
@@ -341,7 +342,7 @@ alignment = 1
 [node name="ProcessDeltaLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1843629795]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 11
+size_flags_horizontal = 7
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
 text = "Process"
@@ -367,7 +368,7 @@ alignment = 1
 [node name="PhysicsDeltaLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=57444602]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 11
+size_flags_horizontal = 7
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
 text = "Physics"
@@ -393,7 +394,7 @@ alignment = 1
 [node name="AudioLatencyLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1669841766]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 11
+size_flags_horizontal = 7
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
 text = "Audio"
@@ -415,73 +416,155 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme = ExtResource("2_pkd3y")
 
-[node name="Labels2" type="GridContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer" unique_id=2134037190]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer" unique_id=1829021313]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=975725619]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="RealTimeLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1497898193]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+theme = ExtResource("2_pkd3y")
+theme_type_variation = &"NameLabel"
+text = "Real"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RealTimeValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=235538073]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_pkd3y")
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=46405487]
+layout_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=56533570]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TimeSinceStartLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer4" unique_id=1538583058]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+theme = ExtResource("2_pkd3y")
+theme_type_variation = &"NameLabel"
+text = "Processed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeSinceStartValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer4" unique_id=11299206]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_pkd3y")
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator5" type="VSeparator" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=386991111]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=744292226]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TimePlayedLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=860769353]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+theme = ExtResource("2_pkd3y")
+theme_type_variation = &"NameLabel"
+text = "Unpaused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimePlayedValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=685228860]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_pkd3y")
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator4" type="VSeparator" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2012033764]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2107588425]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="timePausedLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3" unique_id=518901079]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+theme = ExtResource("2_pkd3y")
+theme_type_variation = &"NameLabel"
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="timePausedValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3" unique_id=584306751]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_pkd3y")
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator8" type="HSeparator" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer" unique_id=63456853]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme = ExtResource("2_pkd3y")
-theme_override_constants/h_separation = 2
-theme_override_constants/v_separation = -3
-columns = 2
 
-[node name="TimeSinceStartLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/Labels2" unique_id=1497898193]
+[node name="MarginContainer" type="MarginContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer" unique_id=1688734890]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="Labels2" type="HBoxContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/MarginContainer" unique_id=1649566560]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme = ExtResource("2_pkd3y")
+alignment = 1
+
+[node name="TimeScaleLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/MarginContainer/Labels2" unique_id=1593355826]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "Time: "
+text = "Time Scale:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="TimeSinceStartValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/Labels2" unique_id=235538073]
+[node name="TimeScaleSlider" type="HSlider" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/MarginContainer/Labels2" unique_id=490194664]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("2_pkd3y")
-text = "..."
-vertical_alignment = 1
-
-[node name="TimePlayedLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/Labels2" unique_id=860769353]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 8
-theme = ExtResource("2_pkd3y")
-theme_type_variation = &"NameLabel"
-text = "   Time Played: "
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="TimePlayedValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/Labels2" unique_id=685228860]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("2_pkd3y")
-text = "..."
-vertical_alignment = 1
-
-[node name="TimeScaleLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/Labels2" unique_id=1593355826]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 8
-theme = ExtResource("2_pkd3y")
-theme_type_variation = &"NameLabel"
-text = "Time Scale: "
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="TimeScaleValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/Labels2" unique_id=2131537690]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("2_pkd3y")
-text = "..."
-vertical_alignment = 1
-
-[node name="TimeScaleSlider" type="HSlider" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer" unique_id=490194664]
-unique_name_in_owner = true
-layout_mode = 2
 theme = ExtResource("2_pkd3y")
 max_value = 2.0
 step = 0.25
@@ -489,8 +572,15 @@ value = 1.0
 tick_count = 5
 ticks_position = 3
 
+[node name="TimeScaleValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/MarginContainer/Labels2" unique_id=2131537690]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_pkd3y")
+text = "..."
+vertical_alignment = 1
+
 [node name="CostsInfo" type="MarginContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels" unique_id=1653636770]
-modulate = Color(0, 1, 1, 1)
+modulate = Color(0, 1.1342824, 1.1730844, 1)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
@@ -508,7 +598,7 @@ theme = ExtResource("2_pkd3y")
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_bottom = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer" unique_id=696274864]
 layout_mode = 2
@@ -592,6 +682,95 @@ text = "..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="HSeparator8" type="HSeparator" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer" unique_id=304491272]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme = ExtResource("2_pkd3y")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer" unique_id=55874209]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1618863444]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="ResourceCountLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer4/VBoxContainer" unique_id=1861279020]
+layout_mode = 2
+size_flags_horizontal = 9
+theme = ExtResource("2_pkd3y")
+theme_type_variation = &"NameLabel"
+text = "Resources"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResourceCountValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer4/VBoxContainer" unique_id=2110669779]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 9
+theme = ExtResource("2_pkd3y")
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator4" type="VSeparator" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=650975043]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1838760550]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="DrawCallsLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer4/VBoxContainer2" unique_id=1440287135]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_pkd3y")
+theme_type_variation = &"NameLabel"
+text = "Draw Calls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DrawCallsValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer4/VBoxContainer2" unique_id=1571138834]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_pkd3y")
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator5" type="VSeparator" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=2145791878]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=210649755]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PrimitivesLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer4/VBoxContainer3" unique_id=282577286]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_pkd3y")
+theme_type_variation = &"NameLabel"
+text = "Primitives"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PrimitivesValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer4/VBoxContainer3" unique_id=505180077]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource("2_pkd3y")
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HSeparator6" type="HSeparator" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer" unique_id=1827169932]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -634,19 +813,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Physics2DObjectsLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3" unique_id=504661318]
+[node name="OrphanNodeCountLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3" unique_id=1166415697]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 9
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "2D Phys"
+text = "Orphans"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Physics2DObjectsValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3" unique_id=12123021]
+[node name="OrphanNodeCountValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3" unique_id=1095178227]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 9
 theme = ExtResource("2_pkd3y")
 text = "..."
 horizontal_alignment = 1
@@ -660,19 +839,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Physics3DObjectsLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer4" unique_id=1966560813]
+[node name="TweenCountLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer4" unique_id=989823226]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 9
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "3D Phys"
+text = "Tweens"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Physics3DObjectsValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer4" unique_id=403865099]
+[node name="TweenCountValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer4" unique_id=325374960]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 9
 theme = ExtResource("2_pkd3y")
 text = "..."
 horizontal_alignment = 1
@@ -693,21 +872,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="ResourceCountLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer" unique_id=1861279020]
+[node name="Physics2DObjectsLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer" unique_id=504661318]
 layout_mode = 2
-size_flags_horizontal = 9
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "Resources"
+text = "2D Phys"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ResourceCountValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer" unique_id=2110669779]
+[node name="Physics2DObjectsValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer" unique_id=12123021]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 9
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
-text = "Resources"
+text = "..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -719,19 +898,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="TweenCountLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer2" unique_id=989823226]
+[node name="Physics3DObjectsLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer2" unique_id=1966560813]
 layout_mode = 2
-size_flags_horizontal = 9
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "Tweens"
+text = "3D Phys"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TweenCountValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer2" unique_id=325374960]
+[node name="Physics3DObjectsValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer2" unique_id=403865099]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 9
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 text = "..."
 horizontal_alignment = 1
@@ -745,77 +924,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="OrphanNodeCountLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer3" unique_id=1166415697]
-layout_mode = 2
-size_flags_horizontal = 9
-theme = ExtResource("2_pkd3y")
-theme_type_variation = &"NameLabel"
-text = "Orphans"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="OrphanNodeCountValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer3" unique_id=1095178227]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 9
-theme = ExtResource("2_pkd3y")
-text = "..."
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HSeparator7" type="HSeparator" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer" unique_id=1468573928]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 2
-theme = ExtResource("2_pkd3y")
-
-[node name="Labels" type="GridContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer" unique_id=18904584]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 2
-theme = ExtResource("2_pkd3y")
-theme_override_constants/h_separation = 2
-theme_override_constants/v_separation = -3
-columns = 2
-
-[node name="DrawCallsLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/Labels" unique_id=1440287135]
-layout_mode = 2
-size_flags_horizontal = 8
-theme = ExtResource("2_pkd3y")
-theme_type_variation = &"NameLabel"
-text = "Draw Calls: "
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="DrawCallsValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/Labels" unique_id=1571138834]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("2_pkd3y")
-text = "..."
-vertical_alignment = 1
-
-[node name="PrimitivesLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/Labels" unique_id=282577286]
-layout_mode = 2
-size_flags_horizontal = 8
-theme = ExtResource("2_pkd3y")
-theme_type_variation = &"NameLabel"
-text = "    Primitives: "
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="PrimitivesValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/CostsInfo/MarginContainer/VBoxContainer/Labels" unique_id=505180077]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("2_pkd3y")
-text = "..."
-vertical_alignment = 1
-
 [node name="MachineInfo" type="MarginContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels" unique_id=1922008726]
-modulate = Color(0.5058824, 1, 0.7372549, 1)
+modulate = Color(0.4862884, 1.1730844, 0.8182398, 1)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
@@ -844,16 +954,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme = ExtResource("2_pkd3y")
-theme_override_constants/h_separation = 2
-theme_override_constants/v_separation = -3
 columns = 2
 
 [node name="MachineLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/MachineInfo/MarginContainer/VBoxContainer/Labels" unique_id=1916808512]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = " Machine Model: "
+text = "Machine Model:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -867,10 +975,10 @@ vertical_alignment = 1
 
 [node name="OSLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/MachineInfo/MarginContainer/VBoxContainer/Labels" unique_id=522750410]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "OS Name: "
+text = "OS Name:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -884,10 +992,10 @@ vertical_alignment = 1
 
 [node name="OSVersionLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/MachineInfo/MarginContainer/VBoxContainer/Labels" unique_id=1050683321]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "OS Version: "
+text = "OS Version:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -901,10 +1009,10 @@ vertical_alignment = 1
 
 [node name="CPUCoresLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/MachineInfo/MarginContainer/VBoxContainer/Labels" unique_id=1463746350]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "CPU Cores: "
+text = "CPU Cores:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -933,19 +1041,18 @@ size_flags_horizontal = 8
 size_flags_vertical = 9
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "GPU: "
+text = "GPU:"
 horizontal_alignment = 2
 
 [node name="GPUNameValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/MachineInfo/MarginContainer/VBoxContainer/GridContainer" unique_id=545599677]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_override_constants/line_spacing = -2
 text = "..."
+horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="CPUNameLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/MachineInfo/MarginContainer/VBoxContainer/GridContainer" unique_id=366334297]
 visible = false
@@ -954,22 +1061,21 @@ size_flags_horizontal = 8
 size_flags_vertical = 9
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "CPU: "
+text = "CPU:"
 horizontal_alignment = 2
 
 [node name="CPUNameValue" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/MachineInfo/MarginContainer/VBoxContainer/GridContainer" unique_id=1146369919]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_override_constants/line_spacing = -2
 text = "..."
+horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="GameStateInfo" type="MarginContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels" unique_id=1462969976]
-modulate = Color(1, 0.75686276, 0.74509805, 1)
+modulate = Color(1.1291975, 0.74531543, 0.7251111, 1)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
@@ -995,17 +1101,15 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme = ExtResource("2_pkd3y")
-theme_override_constants/h_separation = 2
-theme_override_constants/v_separation = -3
 columns = 2
 
 [node name="VersionLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/GameStateInfo/MarginContainer/Labels" unique_id=413644910]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "Version: "
+text = "Version:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -1020,10 +1124,10 @@ vertical_alignment = 1
 [node name="BuildProfileLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/GameStateInfo/MarginContainer/Labels" unique_id=646092267]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "  Release Mode: "
+text = "Release Mode:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -1038,10 +1142,10 @@ vertical_alignment = 1
 [node name="LocaleLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/GameStateInfo/MarginContainer/Labels" unique_id=711552474]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "Locale: "
+text = "Locale:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -1056,10 +1160,10 @@ vertical_alignment = 1
 [node name="CoreSceneLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/GameStateInfo/MarginContainer/Labels" unique_id=330132545]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "Core Scene: "
+text = "Core Scene:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -1072,7 +1176,7 @@ text = "..."
 vertical_alignment = 1
 
 [node name="InputOutpuInfo" type="MarginContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels" unique_id=1049452224]
-modulate = Color(0.8156863, 0.8117647, 1, 1)
+modulate = Color(0.8103591, 0.77107716, 1.1638972, 1)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
@@ -1090,7 +1194,7 @@ theme = ExtResource("2_pkd3y")
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_bottom = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/InputOutpuInfo/MarginContainer" unique_id=1335175042]
 layout_mode = 2
@@ -1129,7 +1233,6 @@ layout_mode = 2
 [node name="VBoxContainer2" type="VBoxContainer" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/InputOutpuInfo/MarginContainer/VBoxContainer/HBoxContainer" unique_id=966260486]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 0
 alignment = 1
 
 [node name="ViewportSizeLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/InputOutpuInfo/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=369605959]
@@ -1191,16 +1294,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme = ExtResource("2_pkd3y")
-theme_override_constants/h_separation = 2
-theme_override_constants/v_separation = -3
 columns = 2
 
 [node name="MousePositionLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/InputOutpuInfo/MarginContainer/VBoxContainer/Labels3" unique_id=361109695]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "Mouse Position: "
+text = "Mouse Position:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -1215,10 +1316,10 @@ vertical_alignment = 1
 [node name="DisplayScaleLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/InputOutpuInfo/MarginContainer/VBoxContainer/Labels3" unique_id=969407054]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "Display Scale: "
+text = "Display Scale:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -1233,10 +1334,10 @@ vertical_alignment = 1
 [node name="WindowScaleLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/InputOutpuInfo/MarginContainer/VBoxContainer/Labels3" unique_id=178614127]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "Window Scale: "
+text = "Window Scale:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -1251,10 +1352,10 @@ vertical_alignment = 1
 [node name="WindowModeLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/InputOutpuInfo/MarginContainer/VBoxContainer/Labels3" unique_id=574190050]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "Window Mode: "
+text = "Window Mode:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -1269,10 +1370,10 @@ vertical_alignment = 1
 [node name="WindowCountLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/InputOutpuInfo/MarginContainer/VBoxContainer/Labels3" unique_id=933802300]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "Window Count: "
+text = "Window Count:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -1316,17 +1417,15 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme = ExtResource("2_pkd3y")
-theme_override_constants/h_separation = 2
-theme_override_constants/v_separation = -3
 columns = 2
 
 [node name="PauseRequestsLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/PauseInfo/MarginContainer/VBoxContainer/Labels" unique_id=362399205]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "Pause Requests: "
+text = "Pause Requests:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -1341,10 +1440,10 @@ vertical_alignment = 1
 [node name="PauseLabel" type="Label" parent="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/PauseInfo/MarginContainer/VBoxContainer/Labels" unique_id=959144625]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme = ExtResource("2_pkd3y")
 theme_type_variation = &"NameLabel"
-text = "Game Paused: "
+text = "Game Paused:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -1378,5 +1477,5 @@ expand_icon = true
 [connection signal="pressed" from="Placement/DebugPanel/DebugWindow/FrameBtns/PositionBtns/NE" to="." method="_on_ne_pressed"]
 [connection signal="pressed" from="Placement/DebugPanel/DebugWindow/FrameBtns/PositionBtns/SW" to="." method="_on_sw_pressed"]
 [connection signal="pressed" from="Placement/DebugPanel/DebugWindow/FrameBtns/PositionBtns/SE" to="." method="_on_se_pressed"]
-[connection signal="value_changed" from="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/TimeScaleSlider" to="." method="_on_time_scale_slider_value_changed"]
+[connection signal="value_changed" from="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/MarginContainer/Labels2/TimeScaleSlider" to="." method="_on_time_scale_slider_value_changed"]
 [connection signal="toggled" from="Placement/DebugPanel/DebugWindow/DebugContainer/Panels/PauseInfo/MarginContainer/VBoxContainer/PauseResumeBtn" to="." method="_on_pause_resume_btn_toggled"]

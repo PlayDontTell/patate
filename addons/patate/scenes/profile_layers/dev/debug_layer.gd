@@ -19,8 +19,10 @@ extends CanvasLayer
 
 # Time
 @onready var fps_value: Label = %FPSValue
+@onready var real_time_value: Label = %RealTimeValue
 @onready var time_since_start_value: Label = %TimeSinceStartValue
 @onready var time_played_value: Label = %TimePlayedValue
+@onready var time_paused_value: Label = %timePausedValue
 @onready var process_delta_value: Label = %ProcessDeltaValue
 @onready var physics_delta_value: Label = %PhysicsDeltaValue
 @onready var time_scale_value: Label = %TimeScaleValue
@@ -99,8 +101,10 @@ func _exit_tree() -> void:
 
 func _process(delta: float) -> void:
 	set_fps_label()
+	set_real_time_label()
 	set_time_since_start_label()
 	set_time_played_label()
+	set_time_paused_label()
 	set_process_delta_label(delta)
 
 
@@ -181,7 +185,7 @@ func display_debug_layer() -> void:
 
 func _set_count_label(label: Label, value: int) -> void:
 	label.set_text(str(value))
-	label.get_parent().modulate.a = 0.5 if value == 0 else 1.0
+	label.get_parent().modulate.a = 0.4 if value == 0 else 1.0
 
 
 func stringify_vector2(vector2i: Vector2i) -> String:
@@ -196,12 +200,24 @@ func set_fps_label() -> void:
 
 func set_time_since_start_label() -> void:
 	if SaveManager.save_data:
-			time_since_start_value.set_text(str(Utils.round_to_dec(SaveManager.save_data.time_since_start, 1)) + " s")
+		time_since_start_value.set_text(str(Utils.round_to_dec(SaveManager.save_data.time_since_start, 1)) + " s")
+
+
+func set_real_time_label() -> void:
+	if SaveManager.save_data:
+		real_time_value.set_text(str(Utils.round_to_dec(Time.get_ticks_msec() / 1000.0, 1)) + " s")
 
 
 func set_time_played_label() -> void:
 	if SaveManager.save_data:
-			time_played_value.set_text(str(Utils.round_to_dec(SaveManager.save_data.time_played, 1)) + " s")
+		time_played_value.set_text(str(Utils.round_to_dec(SaveManager.save_data.time_played, 1)) + " s")
+
+
+func set_time_paused_label() -> void:
+	if SaveManager.save_data:
+		time_paused_value.set_text(str(Utils.round_to_dec(
+		SaveManager.save_data.time_since_start - SaveManager.save_data.time_played,
+		1)) + " s")
 
 
 func set_process_delta_label(delta: float = 99.) -> void:
@@ -340,28 +356,29 @@ func set_pause_label(pause_state: bool = get_tree().paused) -> void:
 
 func _on_pause_resume_btn_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-			pause_resume_btn.icon = preload("uid://dwi38q3spugmy")
+			pause_resume_btn.icon = preload("res://addons/patate/assets/icons/pause.png")
 			pause_resume_btn.text = "Pause"
 			PauseManager.request_pause(pause_resume_btn, false)
 	else:
-			pause_resume_btn.icon = preload("uid://vrok71kbmo3u")
+			pause_resume_btn.icon = preload("res://addons/patate/assets/icons/right.png")
 			pause_resume_btn.text = "Resume"
 			PauseManager.request_pause(pause_resume_btn, true)
 
 
+
 func _on_collapse_expand_btn_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-			collapse_expand_btn.icon = preload("uid://csfspd6lrbrl8")
+			collapse_expand_btn.icon = preload("res://addons/patate/assets/icons/minus.png")
 			debug_container.visible = true
 			position_btns.visible = true
 	else:
-			collapse_expand_btn.icon = preload("uid://d1cqgv5o7t1if")
+			collapse_expand_btn.icon = preload("res://addons/patate/assets/icons/plus.png")
 			debug_container.visible = false
 			position_btns.visible = false
 
 
 func _on_time_scale_slider_value_changed(value: float = time_scale_slider.value) -> void:
-	time_scale_value.set_text(str(value))
+	time_scale_value.set_text(str(value).lpad(4))
 	Engine.time_scale = value
 
 
