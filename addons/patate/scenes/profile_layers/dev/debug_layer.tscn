@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://judlhvxk1sy" path="res://addons/patate/assets/icons/gear.png" id="12_0s3yy"]
 [ext_resource type="Texture2D" uid="uid://bqhv1rwbtrfsg" path="res://addons/patate/assets/icons/cursor_none.png" id="13_0je2i"]
 [ext_resource type="Texture2D" uid="uid://djblktr4wq762" path="res://addons/patate/assets/icons/question.png" id="23_n6dg0"]
+[ext_resource type="Theme" uid="uid://7ulrlyfv85ax" path="res://assets/themes/default_game_theme/default_game_theme.tres" id="25_0n6sv"]
+[ext_resource type="Script" uid="uid://dk1drx4ug011v" path="res://addons/patate/scenes/profile_layers/dev/bug_report_panel.gd" id="26_5axgr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4r4w"]
 bg_color = Color(0, 0, 0, 0)
@@ -1943,6 +1945,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.4)
+metadata/_edit_lock_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="HelpPanel" unique_id=2008965276]
 layout_mode = 1
@@ -2100,7 +2103,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"NameLabel"
 theme_override_font_sizes/font_size = 19
-text = "Toggle Help"
+text = "Toggle Patate Help"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HelpPanel/PanelContainer/MarginContainer4/VBoxContainer/GridContainer/VBoxContainer3" unique_id=36770141]
@@ -2119,13 +2122,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 15
-text = "Control + H"
+text = "Control + Shift + H"
 
 [node name="ShortcutValue2" type="Label" parent="HelpPanel/PanelContainer/MarginContainer4/VBoxContainer/GridContainer/VBoxContainer3/HBoxContainer/VBoxContainer" unique_id=1692696760]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 15
-text = "Command + H"
+text = "Command + Shift + H"
 
 [node name="ShortcutDescription" type="Label" parent="HelpPanel/PanelContainer/MarginContainer4/VBoxContainer/GridContainer/VBoxContainer3" unique_id=806095421]
 layout_mode = 2
@@ -2166,13 +2169,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 15
-text = "Control + S"
+text = "Control + Shift + S"
 
 [node name="ShortcutValue2" type="Label" parent="HelpPanel/PanelContainer/MarginContainer4/VBoxContainer/GridContainer/VBoxContainer4/HBoxContainer/VBoxContainer" unique_id=313169915]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 15
-text = "Command + S"
+text = "Command + Shift + S"
 
 [node name="ShortcutDescription" type="Label" parent="HelpPanel/PanelContainer/MarginContainer4/VBoxContainer/GridContainer/VBoxContainer4" unique_id=1958938378]
 layout_mode = 2
@@ -2183,8 +2186,113 @@ theme_override_font_sizes/font_size = 15
 text = "Takes a screenshot for every screen size mentionned in MarketingScreenshotSizes"
 autowrap_mode = 3
 
+[node name="VBoxContainer5" type="VBoxContainer" parent="HelpPanel/PanelContainer/MarginContainer4/VBoxContainer/GridContainer" unique_id=1743695479]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="ShortcutName" type="Label" parent="HelpPanel/PanelContainer/MarginContainer4/VBoxContainer/GridContainer/VBoxContainer5" unique_id=139582170]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"NameLabel"
+theme_override_font_sizes/font_size = 19
+text = "Report Bug"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HelpPanel/PanelContainer/MarginContainer4/VBoxContainer/GridContainer/VBoxContainer5" unique_id=671400224]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="HelpPanel/PanelContainer/MarginContainer4/VBoxContainer/GridContainer/VBoxContainer5/HBoxContainer" unique_id=1916965175]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxLine_n6dg0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HelpPanel/PanelContainer/MarginContainer4/VBoxContainer/GridContainer/VBoxContainer5/HBoxContainer" unique_id=124703585]
+modulate = Color(1, 0.99133337, 0.48000002, 1)
+layout_mode = 2
+
+[node name="ShortcutValue" type="Label" parent="HelpPanel/PanelContainer/MarginContainer4/VBoxContainer/GridContainer/VBoxContainer5/HBoxContainer/VBoxContainer" unique_id=1491145223]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 15
+text = "Control + Shift + B"
+
+[node name="ShortcutValue2" type="Label" parent="HelpPanel/PanelContainer/MarginContainer4/VBoxContainer/GridContainer/VBoxContainer5/HBoxContainer/VBoxContainer" unique_id=357509294]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 15
+text = "Command + Shift + B"
+
+[node name="ShortcutDescription" type="Label" parent="HelpPanel/PanelContainer/MarginContainer4/VBoxContainer/GridContainer/VBoxContainer5" unique_id=19705097]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 15
+text = "Opens up the bug reporting panel."
+autowrap_mode = 3
+
+[node name="BugReportPanel" type="Control" parent="." unique_id=590000059]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("25_0n6sv")
+script = ExtResource("26_5axgr")
+
+[node name="PanelContainer" type="PanelContainer" parent="BugReportPanel" unique_id=431042297]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.5
+offset_top = -109.5
+offset_right = 274.5
+offset_bottom = 109.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BugReportPanel/PanelContainer" unique_id=1876041070]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BugReportPanel/PanelContainer/MarginContainer" unique_id=1979743205]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BugReportPanel/PanelContainer/MarginContainer/VBoxContainer" unique_id=1744335362]
+layout_mode = 2
+text = "BUG_REPORT_TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BugCategoryOption" type="OptionButton" parent="BugReportPanel/PanelContainer/MarginContainer/VBoxContainer" unique_id=34426633]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BugDescriptionInput" type="TextEdit" parent="BugReportPanel/PanelContainer/MarginContainer/VBoxContainer" unique_id=675201143]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+caret_blink = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BugReportPanel/PanelContainer/MarginContainer/VBoxContainer" unique_id=1261150074]
+layout_mode = 2
+alignment = 1
+
+[node name="CancelBtn" type="Button" parent="BugReportPanel/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1550638565]
+layout_mode = 2
+text = "COMMON_CANCEL"
+
+[node name="ConfirmBtn" type="Button" parent="BugReportPanel/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=500000611]
+layout_mode = 2
+text = "BUG_REPORT_CONFIRM_BUTTON"
+
 [connection signal="toggled" from="Placement/DebugPanel/DebugWindow/BtnContainer/FrameBtns/CollapseExpandBtn" to="." method="_on_collapse_expand_btn_toggled"]
-[connection signal="pressed" from="Placement/DebugPanel/DebugWindow/BtnContainer/FrameBtns/PanelContainer/MarginContainer/DebugBtns/BugBtn" to="Placement/DebugPanel/DebugWindow/BtnContainer/FrameBtns/PanelContainer/MarginContainer/DebugBtns" method="_on_bug_btn_pressed"]
+[connection signal="pressed" from="Placement/DebugPanel/DebugWindow/BtnContainer/FrameBtns/PanelContainer/MarginContainer/DebugBtns/BugBtn" to="BugReportPanel" method="_on_bug_btn_pressed"]
 [connection signal="pressed" from="Placement/DebugPanel/DebugWindow/BtnContainer/FrameBtns/PanelContainer/MarginContainer/DebugBtns/UserDataFolder" to="Placement/DebugPanel/DebugWindow/BtnContainer/FrameBtns/PanelContainer/MarginContainer/DebugBtns" method="_on_user_data_folder_pressed"]
 [connection signal="pressed" from="Placement/DebugPanel/DebugWindow/BtnContainer/FrameBtns/PanelContainer/MarginContainer/DebugBtns/MarketingScreenshotBtn" to="." method="_on_marketing_screenshot_btn_pressed"]
 [connection signal="toggled" from="Placement/DebugPanel/DebugWindow/BtnContainer/FrameBtns/PanelContainer/MarginContainer/DebugBtns/PauseResumeBtn" to="." method="_on_pause_resume_btn_toggled"]
@@ -2197,3 +2305,5 @@ autowrap_mode = 3
 [connection signal="mouse_entered" from="Placement/DebugPanel/DebugWindow/DebugContainer/VBoxContainer/MarginContainer/Tabs/PanelContainer/HelpSpot" to="." method="_on_help_spot_mouse_entered"]
 [connection signal="mouse_exited" from="Placement/DebugPanel/DebugWindow/DebugContainer/VBoxContainer/MarginContainer/Tabs/PanelContainer/HelpSpot" to="." method="_on_help_spot_mouse_exited"]
 [connection signal="value_changed" from="Placement/DebugPanel/DebugWindow/DebugContainer/VBoxContainer/Panels/TimeInfo/MarginContainer/VBoxContainer/MarginContainer/Labels2/TimeScaleSlider" to="." method="_on_time_scale_slider_value_changed"]
+[connection signal="pressed" from="BugReportPanel/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CancelBtn" to="BugReportPanel" method="_on_cancel_btn_pressed"]
+[connection signal="pressed" from="BugReportPanel/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ConfirmBtn" to="BugReportPanel" method="_on_confirm_btn_pressed"]

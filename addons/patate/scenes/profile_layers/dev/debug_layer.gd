@@ -3,6 +3,7 @@ extends CanvasLayer
 
 @onready var help_panel: Control = %HelpPanel
 @onready var help_label: Label = %HelpLabel
+@onready var bug_report_panel: Control = %BugReportPanel
 
 @onready var btn_container: MarginContainer = %BtnContainer
 @onready var placement: Control = %Placement
@@ -78,7 +79,14 @@ extends CanvasLayer
 @onready var pause_value: Label = %PauseValue
 @onready var pause_resume_btn: Button = %PauseResumeBtn
 
-
+@export var bug_categories: PackedStringArray = [
+	"Gameplay",
+	"UI",
+	"Audio",
+	"Visual",
+	"Crash",
+	"Other"
+]
 @export var expanded_on_start: bool = false
 
 enum StartPosition {
@@ -108,7 +116,8 @@ enum Tab {
 
 
 var info_refresh_timer: Timer
-
+var _last_process_delta: float = 0.0
+var _last_physics_delta: float = 0.0
 
 func _ready() -> void:
 	help_panel.hide()
@@ -125,6 +134,7 @@ func _exit_tree() -> void:
 
 
 func _process(delta: float) -> void:
+	_last_process_delta = delta
 	set_fps_label()
 	set_real_time_label()
 	set_time_since_start_label()
@@ -140,20 +150,24 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	_last_physics_delta = delta
 	set_physics_delta_label(delta)
 
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch or event is InputEventScreenDrag or event is InputEventMouseMotion:
 		set_mouse_position_label(event.position)
-
-	if InputManager.just_pressed_event("toggle_Dev_layer", event):
+	
+	if InputManager.just_pressed_event("toggle_Debug_layer", event):
 		display_debug_layer()
-
+	
 	help_panel.visible = InputManager.pressed("toggle_Help") or mouse_on_help_spot
-
-	if InputManager.just_pressed_event("Marketing_Screenshot", event):
+	
+	if InputManager.just_pressed_event("Take_Marketing_Screenshot", event):
 		take_marketing_screenshots(true)
+	
+	if InputManager.just_pressed_event("Report_Bug", event):
+		bug_report_panel._on_bug_btn_pressed()
 
 
 func _get_help_text(node: Node) -> String:

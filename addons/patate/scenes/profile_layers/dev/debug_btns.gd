@@ -7,10 +7,6 @@ func _on_user_data_folder_pressed() -> void:
 	OS.shell_open(OS.get_user_data_dir())
 
 
-func _on_bug_btn_pressed() -> void:
-	pass # Replace with function body.
-
-
 func _on_restart_game_btn_pressed() -> void:
 	G.request_game_restart.emit()
 

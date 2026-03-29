@@ -62,6 +62,9 @@ func deactivate() -> void:
 func grab_default_focus() -> void:
 	if DeviceManager.last_input_method in [DeviceManager.InputMethod.MOUSE, DeviceManager.InputMethod.TOUCH]:
 		return
+	var focused := get_viewport().gui_get_focus_owner()
+	if focused is TextEdit or focused is LineEdit:
+		return
 	var target := _get_default_focus()
 	if is_instance_valid(target) and target.focus_mode == Control.FOCUS_ALL:
 		target.grab_focus()

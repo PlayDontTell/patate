@@ -133,5 +133,5 @@ func _on_method_changed(method: DeviceManager.InputMethod) -> void:
 				_grab_focus(_current)
 		DeviceManager.InputMethod.TOUCH, DeviceManager.InputMethod.MOUSE:
 			var focused := get_viewport().gui_get_focus_owner()
-			if is_instance_valid(focused):
+			if is_instance_valid(focused) and not (focused is TextEdit or focused is LineEdit):
 				focused.release_focus()
